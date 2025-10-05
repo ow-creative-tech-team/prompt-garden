@@ -1,0 +1,106 @@
+PROMPT GARDEN - REPOSITORY STRUCTURE
+================================================================================
+
+📁 prompt-garden/
+│
+├── 📄 README.md                    → Main documentation (start here!)
+├── 📄 CONTRIBUTING.md              → Contribution guidelines & workflow
+├── 📄 QUICKSTART.md                → 5-minute getting started guide
+├── 📄 .gitignore                   → Git ignore rules (OS, OneDrive, etc.)
+│
+├── 🛠️  _system/                     → Infrastructure (not prompts)
+│   ├── 📁 schemas/
+│   │   └── prompt-schema.json     → YAML validation schema
+│   ├── 📁 templates/              → Starting templates (COPY THESE!)
+│   │   ├── style-template.md
+│   │   ├── scene-template.md
+│   │   ├── subject-template.md
+│   │   ├── standalone-template.md
+│   │   └── template-component.md
+│   └── 📁 docs/
+│       └── folder-structure.md    → Detailed structure guide
+│
+├── 🖼️  text-to-image/              → Image generation prompts
+│   ├── 📁 styles/
+│   │   ├── 📁 photography/
+│   │   │   ├── 📁 urban-bw/       ✅ EXAMPLE (fully populated)
+│   │   │   │   ├── _style.md
+│   │   │   │   ├── scene-night-street.md
+│   │   │   │   └── subject-pedestrian.md
+│   │   │   ├── 📁 portrait-natural/
+│   │   │   └── 📁 product-studio/
+│   │   ├── 📁 illustration/
+│   │   ├── 📁 3d-render/
+│   │   └── 📁 digital-art/
+│   ├── 📁 subjects/               → Standalone subjects
+│   └── 📁 templates/              → Reusable image components
+│
+├── 📝 text-to-text/                → Text generation prompts
+│   ├── 📁 creative/
+│   ├── 📁 technical/
+│   ├── 📁 marketing/
+│   └── 📁 templates/
+│
+└── 💻 text-to-code/                → Code generation prompts
+    ├── 📁 functions/
+    ├── 📁 scripts/
+    ├── 📁 snippets/
+    └── 📁 templates/
+
+================================================================================
+KEY CONCEPTS
+================================================================================
+
+📋 YAML FRONTMATTER (Required at top of every file)
+   → Metadata: id, title, type, category, tags, version, dates, etc.
+   → See templates for complete structure
+
+🔗 MODULAR SYSTEM
+   → Style + Scene + Subject = Complete composition
+   → Link prompts using 'related_prompts' field in YAML
+
+📝 NAMING CONVENTIONS
+   Folders:  lowercase-kebab-case
+   Files:    _style.md, scene-*.md, subject-*.md, or descriptive-name.md
+
+🌿 GIT WORKFLOW
+   1. Pull latest (git pull origin main)
+   2. Create branch (git checkout -b feature/name)
+   3. Create/edit prompts
+   4. Commit (git commit -m "feat(category): description")
+   5. Push (git push origin feature/name)
+   6. Create PR on GitHub
+
+================================================================================
+QUICK COMMANDS
+================================================================================
+
+Start new prompt:
+  cd text-to-image/styles/photography
+  mkdir my-style
+  cp ../../../_system/templates/style-template.md my-style/_style.md
+  code my-style/_style.md
+
+Daily workflow:
+  git pull origin main
+  git checkout -b feature/my-prompt
+  [create/edit files]
+  git add . && git commit -m "feat(type): description"
+  git push origin feature/my-prompt
+
+Check status:
+  git status
+  git diff
+
+================================================================================
+TOOLS & INTERFACES
+================================================================================
+
+✏️  VS Code + Claude Code  → Primary editing (with team)
+🔍 Obsidian               → Browsing & exploration
+📂 Finder                 → File operations & organization
+🐙 GitHub                 → Version control & collaboration
+
+================================================================================
+
+For more details, see README.md or QUICKSTART.md

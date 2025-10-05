@@ -1,0 +1,31 @@
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# OneDrive
+~$*
+*.tmp
+.~lock.*
+~dump
+
+# Obsidian workspace (keep vault config, ignore workspace)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Generated files
+_generated/
