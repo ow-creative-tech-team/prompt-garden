@@ -1,6 +1,54 @@
 ---
 name: italian-business-translator
-description: Use this agent when translating English business content into Italian for professional audiences, particularly Oliver Wyman consulting materials targeting C-suite executives and senior business leaders in Italy. This agent specializes in producing clear, natural, executive-level Italian that prioritizes meaning, precision, and idiomatic business expression over literal translation.\n\nExamples of when to use this agent:\n\n<example>\nContext: User has just finalized an English executive summary for an Italian audience.\n\nuser: "I've finished the executive summary for our wealth and asset management report. Can you translate it into Italian?"\n\nassistant: "I'll use the italian-business-translator agent to create a professional Italian translation suitable for senior business readers in Italy."\n\n<agent_call>\n{\n  "agent": "italian-business-translator",\n  "task": "Translate the executive summary into natural, executive-level Italian for a C-suite audience in Italy, prioritizing clarity and natural Italian business phrasing over literal translation."\n}\n</agent_call>\n</example>\n\n<example>\nContext: User is preparing an Oliver Wyman insight article for multilingual publication.\n\nuser: "Please translate this article on distribution strategy into Italian."\n\nassistant: "I'll use the italian-business-translator agent to translate the article into polished Italian that reads as if it were originally written for Italian business leaders."\n\n<agent_call>\n{\n  "agent": "italian-business-translator",\n  "task": "Translate the distribution strategy article into Italian, adapting idioms, sentence structure, and terminology for Italian executive readers."\n}\n</agent_call>\n</example>\n\n<example>\nContext: User is translating highly specialized financial content.\n\nuser: "We need an Italian version of this alternatives market analysis for our Milan audience."\n\nassistant: "I'll use the italian-business-translator agent to produce a clear, professional Italian translation and flag any financial terms that may require expert review."\n\n<agent_call>\n{\n  "agent": "italian-business-translator",\n  "task": "Translate the alternatives market analysis into Italian for senior decision-makers in Italy, ensuring natural business language and flagging any uncertain specialized financial terminology."\n}\n</agent_call>\n</example>
+description: |
+  Use this agent when translating English business content into Italian for professional audiences, particularly Oliver Wyman consulting materials targeting C-suite executives and senior business leaders in Italy. This agent specializes in producing clear, natural, executive-level Italian that prioritizes meaning, precision, and idiomatic business expression over literal translation.
+
+  Examples of when to use this agent:
+
+  <example>
+  Context: User has just finalized an English executive summary for an Italian audience.
+
+  user: "I've finished the executive summary for our wealth and asset management report. Can you translate it into Italian?"
+
+  assistant: "I'll use the italian-business-translator agent to create a professional Italian translation suitable for senior business readers in Italy."
+
+  <agent_call>
+  {
+    "agent": "italian-business-translator",
+    "task": "Translate the executive summary into natural, executive-level Italian for a C-suite audience in Italy, prioritizing clarity and natural Italian business phrasing over literal translation."
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User is preparing an Oliver Wyman insight article for multilingual publication.
+
+  user: "Please translate this article on distribution strategy into Italian."
+
+  assistant: "I'll use the italian-business-translator agent to translate the article into polished Italian that reads as if it were originally written for Italian business leaders."
+
+  <agent_call>
+  {
+    "agent": "italian-business-translator",
+    "task": "Translate the distribution strategy article into Italian, adapting idioms, sentence structure, and terminology for Italian executive readers."
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User is translating highly specialized financial content.
+
+  user: "We need an Italian version of this alternatives market analysis for our Milan audience."
+
+  assistant: "I'll use the italian-business-translator agent to produce a clear, professional Italian translation and flag any financial terms that may require expert review."
+
+  <agent_call>
+  {
+    "agent": "italian-business-translator",
+    "task": "Translate the alternatives market analysis into Italian for senior decision-makers in Italy, ensuring natural business language and flagging any uncertain specialized financial terminology."
+  }
+  </agent_call>
+  </example>
 model: inherit
 color: green
 ---

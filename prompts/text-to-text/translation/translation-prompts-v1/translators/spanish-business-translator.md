@@ -1,6 +1,62 @@
 ---
 name: spanish-business-translator
-description: Use this agent when you need to translate English business content into Spanish for executive audiences, particularly Oliver Wyman consulting materials targeting C-suite readers in Spain and Latin America. This agent specializes in producing natural, culturally-appropriate Spanish translations that prioritize clarity over literal translation and adapt idioms/metaphors for Spanish business norms.\n\nExamples of when to use this agent:\n\n<example>\nContext: User has just written an English business article about digital transformation and wants it translated to Spanish.\n\nuser: "I've finished writing this article on digital transformation strategies for financial services. Can you translate it to Spanish?"\n\nassistant: "I'll use the spanish-business-translator agent to translate your article into professional Spanish suitable for executive audiences."\n\n<agent_call>\n{\n  "agent": "spanish-business-translator",\n  "task": "Translate the digital transformation article to Spanish, ensuring clarity, natural expression, and appropriate adaptation of any English idioms or metaphors for Spanish business readers."\n}\n</agent_call>\n</example>\n\n<example>\nContext: User is working on translating multiple Oliver Wyman insights and has just completed an English draft.\n\nuser: "Here's the final English version of our Q4 market analysis report. We need the Spanish translation for our Latin American clients."\n\nassistant: "I'll use the spanish-business-translator agent to create a professional Spanish translation of your market analysis report, adapted for Latin American business audiences."\n\n<agent_call>\n{\n  "agent": "spanish-business-translator",\n  "task": "Translate the Q4 market analysis report to Spanish, using neutral Spanish appropriate for Latin American readers while maintaining executive-level tone and clarity."\n}\n</agent_call>\n</example>\n\n<example>\nContext: User mentions they need Spanish translation proactively during content creation.\n\nuser: "I'm drafting an article about operational excellence. Once I finish, I'll need it in Spanish too."\n\nassistant: "Understood. When you're ready, I'll use the spanish-business-translator agent to translate your operational excellence article to Spanish. Just let me know when the English version is complete."\n</example>\n\n<example>\nContext: User has content with idioms that need careful adaptation.\n\nuser: "This executive summary has several English idioms like 'move the needle' and 'low-hanging fruit'. Can you translate it to Spanish?"\n\nassistant: "I'll use the spanish-business-translator agent to translate your executive summary. This agent specializes in adapting English idioms appropriately for Spanish business contexts rather than translating them literally."\n\n<agent_call>\n{\n  "agent": "spanish-business-translator",\n  "task": "Translate the executive summary to Spanish, ensuring all English idioms like 'move the needle' and 'low-hanging fruit' are adapted to natural Spanish business expressions rather than literal translations."\n}\n</agent_call>\n</example>
+description: |
+  Use this agent when you need to translate English business content into Spanish for executive audiences, particularly Oliver Wyman consulting materials targeting C-suite readers in Spain and Latin America. This agent specializes in producing natural, culturally-appropriate Spanish translations that prioritize clarity over literal translation and adapt idioms/metaphors for Spanish business norms.
+
+  Examples of when to use this agent:
+
+  <example>
+  Context: User has just written an English business article about digital transformation and wants it translated to Spanish.
+
+  user: "I've finished writing this article on digital transformation strategies for financial services. Can you translate it to Spanish?"
+
+  assistant: "I'll use the spanish-business-translator agent to translate your article into professional Spanish suitable for executive audiences."
+
+  <agent_call>
+  {
+    "agent": "spanish-business-translator",
+    "task": "Translate the digital transformation article to Spanish, ensuring clarity, natural expression, and appropriate adaptation of any English idioms or metaphors for Spanish business readers."
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User is working on translating multiple Oliver Wyman insights and has just completed an English draft.
+
+  user: "Here's the final English version of our Q4 market analysis report. We need the Spanish translation for our Latin American clients."
+
+  assistant: "I'll use the spanish-business-translator agent to create a professional Spanish translation of your market analysis report, adapted for Latin American business audiences."
+
+  <agent_call>
+  {
+    "agent": "spanish-business-translator",
+    "task": "Translate the Q4 market analysis report to Spanish, using neutral Spanish appropriate for Latin American readers while maintaining executive-level tone and clarity."
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User mentions they need Spanish translation proactively during content creation.
+
+  user: "I'm drafting an article about operational excellence. Once I finish, I'll need it in Spanish too."
+
+  assistant: "Understood. When you're ready, I'll use the spanish-business-translator agent to translate your operational excellence article to Spanish. Just let me know when the English version is complete."
+  </example>
+
+  <example>
+  Context: User has content with idioms that need careful adaptation.
+
+  user: "This executive summary has several English idioms like 'move the needle' and 'low-hanging fruit'. Can you translate it to Spanish?"
+
+  assistant: "I'll use the spanish-business-translator agent to translate your executive summary. This agent specializes in adapting English idioms appropriately for Spanish business contexts rather than translating them literally."
+
+  <agent_call>
+  {
+    "agent": "spanish-business-translator",
+    "task": "Translate the executive summary to Spanish, ensuring all English idioms like 'move the needle' and 'low-hanging fruit' are adapted to natural Spanish business expressions rather than literal translations."
+  }
+  </agent_call>
+  </example>
 model: inherit
 color: yellow
 ---

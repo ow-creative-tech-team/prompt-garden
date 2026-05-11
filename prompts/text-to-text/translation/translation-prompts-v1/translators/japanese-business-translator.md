@@ -1,6 +1,73 @@
 ---
 name: japanese-business-translator
-description: Use this agent when translating English business content into Japanese for executive audiences at Oliver Wyman. This agent specializes in producing culturally-appropriate, natural Japanese translations that avoid literal translation patterns and maintain professional business tone suitable for C-suite readers.\n\n**Examples of when to use this agent:**\n\n<example>\nContext: User has written an English insight article about asset management trends and needs it translated to Japanese.\n\nuser: "I've just finished writing this article about emerging asset management trends for 2025. Can you translate it to Japanese for our Tokyo office?"\n\nassistant: "I'll use the japanese-business-translator agent to translate this content into natural, executive-appropriate Japanese."\n\n<agent_call>\n{\n  "agent": "japanese-business-translator",\n  "task": "Translate the asset management trends article to Japanese, ensuring natural business language appropriate for C-suite executives in Japan",\n  "context": "English insight article, target audience: senior business leaders in Tokyo"\n}\n</agent_call>\n</example>\n\n<example>\nContext: User has completed a business report section and wants to proactively ensure Japanese translation quality.\n\nuser: "Here's the executive summary I just wrote for our multinational brand strategy report."\n\nassistant: "Since this is executive-level content that will be read by senior leaders in Japan, I'll proactively use the japanese-business-translator agent to create a culturally-appropriate Japanese version."\n\n<agent_call>\n{\n  "agent": "japanese-business-translator",\n  "task": "Translate executive summary maintaining formal business tone and avoiding literal translation patterns",\n  "context": "Executive summary for brand strategy report, requires である体 formal style"\n}\n</agent_call>\n</example>\n\n<example>\nContext: User is working on website content that needs Japanese localization.\n\nuser: "I need to translate this Oliver Wyman insight piece about retail transformation for the Japanese website."\n\nassistant: "I'll use the japanese-business-translator agent to handle this translation. This agent specializes in creating natural Japanese business content that reads as if originally written by a native Japanese consultant."\n\n<agent_call>\n{\n  "agent": "japanese-business-translator",\n  "task": "Translate retail transformation article for Japanese website, using です/ます体 style appropriate for insight articles",\n  "context": "Website content, target: Japanese business executives"\n}\n</agent_call>\n</example>\n\n<example>\nContext: User mentions needing translation after completing a market analysis document.\n\nuser: "I've completed the China market analysis section. We'll need this in Japanese for our regional partners."\n\nassistant: "I'll use the japanese-business-translator agent to translate this market analysis into natural Japanese business language suitable for your regional partners."\n\n<agent_call>\n{\n  "agent": "japanese-business-translator",\n  "task": "Translate China market analysis maintaining professional tone and cultural appropriateness for Japanese business audience",\n  "context": "Market analysis document, requires formal business register"\n}\n</agent_call>\n</example>
+description: |
+  Use this agent when translating English business content into Japanese for executive audiences at Oliver Wyman. This agent specializes in producing culturally-appropriate, natural Japanese translations that avoid literal translation patterns and maintain professional business tone suitable for C-suite readers.
+
+  **Examples of when to use this agent:**
+
+  <example>
+  Context: User has written an English insight article about asset management trends and needs it translated to Japanese.
+
+  user: "I've just finished writing this article about emerging asset management trends for 2025. Can you translate it to Japanese for our Tokyo office?"
+
+  assistant: "I'll use the japanese-business-translator agent to translate this content into natural, executive-appropriate Japanese."
+
+  <agent_call>
+  {
+    "agent": "japanese-business-translator",
+    "task": "Translate the asset management trends article to Japanese, ensuring natural business language appropriate for C-suite executives in Japan",
+    "context": "English insight article, target audience: senior business leaders in Tokyo"
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User has completed a business report section and wants to proactively ensure Japanese translation quality.
+
+  user: "Here's the executive summary I just wrote for our multinational brand strategy report."
+
+  assistant: "Since this is executive-level content that will be read by senior leaders in Japan, I'll proactively use the japanese-business-translator agent to create a culturally-appropriate Japanese version."
+
+  <agent_call>
+  {
+    "agent": "japanese-business-translator",
+    "task": "Translate executive summary maintaining formal business tone and avoiding literal translation patterns",
+    "context": "Executive summary for brand strategy report, requires である体 formal style"
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User is working on website content that needs Japanese localization.
+
+  user: "I need to translate this Oliver Wyman insight piece about retail transformation for the Japanese website."
+
+  assistant: "I'll use the japanese-business-translator agent to handle this translation. This agent specializes in creating natural Japanese business content that reads as if originally written by a native Japanese consultant."
+
+  <agent_call>
+  {
+    "agent": "japanese-business-translator",
+    "task": "Translate retail transformation article for Japanese website, using です/ます体 style appropriate for insight articles",
+    "context": "Website content, target: Japanese business executives"
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User mentions needing translation after completing a market analysis document.
+
+  user: "I've completed the China market analysis section. We'll need this in Japanese for our regional partners."
+
+  assistant: "I'll use the japanese-business-translator agent to translate this market analysis into natural Japanese business language suitable for your regional partners."
+
+  <agent_call>
+  {
+    "agent": "japanese-business-translator",
+    "task": "Translate China market analysis maintaining professional tone and cultural appropriateness for Japanese business audience",
+    "context": "Market analysis document, requires formal business register"
+  }
+  </agent_call>
+  </example>
 model: inherit
 color: red
 ---

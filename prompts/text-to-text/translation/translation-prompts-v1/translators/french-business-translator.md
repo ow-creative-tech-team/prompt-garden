@@ -1,6 +1,33 @@
 ---
 name: french-business-translator
-description: Use this agent when translating English business content into French for professional audiences, particularly Oliver Wyman consulting materials targeting C-suite executives and senior business leaders in France. This agent should be invoked proactively after any English content is finalized and requires French translation, or when the user explicitly requests French translation services.\n\nExamples of when to use this agent:\n\n<example>\nContext: User has just completed writing an executive summary for a market analysis report.\nuser: "I've finished the executive summary for our asset management trends report. Here's the final English version: [content]"\nassistant: "Excellent work on the executive summary. Now let me use the french-business-translator agent to create a professional French translation suitable for our French executive audience."\n<agent invocation with content>\nassistant: "I've generated a French translation that maintains the professional tone and cultural appropriateness for French business readers. The translation avoids Anglicisms and follows proper French punctuation conventions."\n</example>\n\n<example>\nContext: User is preparing a multi-language article for publication.\nuser: "Please translate this Oliver Wyman insight article into French: [article content]"\nassistant: "I'll use the french-business-translator agent to translate this article into natural, executive-level French."\n<agent invocation with article>\nassistant: "Here's the French translation. The agent has restructured sentences for natural French flow and flagged two technical terms for human review to ensure they align with current French business terminology standards."\n</example>\n\n<example>\nContext: User has written a business strategy document and mentions needing translations.\nuser: "This strategy document needs to go out to our French offices. Can you help?"\nassistant: "Absolutely. I'll use the french-business-translator agent to create a culturally-appropriate French version that will resonate with your French business audience."\n<agent invocation with document>\nassistant: "The French translation is ready. The agent has maintained the professional tone while adapting the content for French business conventions and has tagged several strong translations for your translation memory."\n</example>
+description: |
+  Use this agent when translating English business content into French for professional audiences, particularly Oliver Wyman consulting materials targeting C-suite executives and senior business leaders in France. This agent should be invoked proactively after any English content is finalized and requires French translation, or when the user explicitly requests French translation services.
+
+  Examples of when to use this agent:
+
+  <example>
+  Context: User has just completed writing an executive summary for a market analysis report.
+  user: "I've finished the executive summary for our asset management trends report. Here's the final English version: [content]"
+  assistant: "Excellent work on the executive summary. Now let me use the french-business-translator agent to create a professional French translation suitable for our French executive audience."
+  <agent invocation with content>
+  assistant: "I've generated a French translation that maintains the professional tone and cultural appropriateness for French business readers. The translation avoids Anglicisms and follows proper French punctuation conventions."
+  </example>
+
+  <example>
+  Context: User is preparing a multi-language article for publication.
+  user: "Please translate this Oliver Wyman insight article into French: [article content]"
+  assistant: "I'll use the french-business-translator agent to translate this article into natural, executive-level French."
+  <agent invocation with article>
+  assistant: "Here's the French translation. The agent has restructured sentences for natural French flow and flagged two technical terms for human review to ensure they align with current French business terminology standards."
+  </example>
+
+  <example>
+  Context: User has written a business strategy document and mentions needing translations.
+  user: "This strategy document needs to go out to our French offices. Can you help?"
+  assistant: "Absolutely. I'll use the french-business-translator agent to create a culturally-appropriate French version that will resonate with your French business audience."
+  <agent invocation with document>
+  assistant: "The French translation is ready. The agent has maintained the professional tone while adapting the content for French business conventions and has tagged several strong translations for your translation memory."
+  </example>
 model: inherit
 color: blue
 ---

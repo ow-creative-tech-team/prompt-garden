@@ -1,6 +1,32 @@
 ---
 name: translation-quality-evaluator
-description: Use this agent when you need to evaluate the quality of translated business content from a native speaker's perspective. This agent should be invoked after translation tasks are completed to assess naturalness, cultural appropriateness, and professional tone. Examples:\n\n<example>\nContext: User has just completed translating an Oliver Wyman article into Japanese using the language-specialist-ja agent.\n\nuser: "Please translate this article about asset management trends into Japanese"\nassistant: "I'll use the language-specialist-ja agent to translate this content."\n[translation completed]\nassistant: "Translation complete. Now let me use the translation-quality-evaluator agent to assess the quality of this translation from a native Japanese business reader's perspective."\n</example>\n\n<example>\nContext: User is working on a batch of translations and wants quality assessment.\n\nuser: "I've translated five articles into French. Can you review them?"\nassistant: "I'll use the translation-quality-evaluator agent to evaluate each French translation as a native French business executive would read them."\n</example>\n\n<example>\nContext: Proactive quality check after translation workflow.\n\nuser: "Translate this executive report into German and Spanish"\nassistant: "I'll translate using the appropriate language specialists."\n[translations completed]\nassistant: "Translations complete. I'm now going to proactively use the translation-quality-evaluator agent to assess both translations and ensure they meet publication standards for native German and Spanish business readers."\n</example>
+description: |
+  Use this agent when you need to evaluate the quality of translated business content from a native speaker's perspective. This agent should be invoked after translation tasks are completed to assess naturalness, cultural appropriateness, and professional tone. Examples:
+
+  <example>
+  Context: User has just completed translating an Oliver Wyman article into Japanese using the language-specialist-ja agent.
+
+  user: "Please translate this article about asset management trends into Japanese"
+  assistant: "I'll use the language-specialist-ja agent to translate this content."
+  [translation completed]
+  assistant: "Translation complete. Now let me use the translation-quality-evaluator agent to assess the quality of this translation from a native Japanese business reader's perspective."
+  </example>
+
+  <example>
+  Context: User is working on a batch of translations and wants quality assessment.
+
+  user: "I've translated five articles into French. Can you review them?"
+  assistant: "I'll use the translation-quality-evaluator agent to evaluate each French translation as a native French business executive would read them."
+  </example>
+
+  <example>
+  Context: Proactive quality check after translation workflow.
+
+  user: "Translate this executive report into German and Spanish"
+  assistant: "I'll translate using the appropriate language specialists."
+  [translations completed]
+  assistant: "Translations complete. I'm now going to proactively use the translation-quality-evaluator agent to assess both translations and ensure they meet publication standards for native German and Spanish business readers."
+  </example>
 model: inherit
 color: purple
 ---

@@ -1,6 +1,62 @@
 ---
 name: european-portuguese-business-translator
-description: Use this agent when you need to translate English business content into European Portuguese for executive audiences, particularly Oliver Wyman consulting materials targeting C-suite readers in Portugal. This agent specializes in producing natural, culturally-appropriate European Portuguese (pt-PT) translations that prioritize clarity over literal translation, adapt idioms/metaphors for Portuguese business norms, and produce output indistinguishable from content originally written in European Portuguese.\n\nExamples of when to use this agent:\n\n<example>\nContext: User has just written an English business article about digital transformation and wants it translated to European Portuguese.\n\nuser: "I've finished writing this article on digital transformation strategies for financial services. Can you translate it to European Portuguese?"\n\nassistant: "I'll use the european-portuguese-business-translator agent to translate your article into professional European Portuguese suitable for executive audiences in Portugal."\n\n<agent_call>\n{\n  "agent": "european-portuguese-business-translator",\n  "task": "Translate the digital transformation article to European Portuguese, ensuring clarity, natural expression, and appropriate adaptation of any English idioms or metaphors for Portuguese business readers."\n}\n</agent_call>\n</example>\n\n<example>\nContext: User is working on translating multiple Oliver Wyman insights and has just completed an English draft.\n\nuser: "Here's the final English version of our Q4 market analysis report. We need the European Portuguese translation for our Portugal clients."\n\nassistant: "I'll use the european-portuguese-business-translator agent to create a professional European Portuguese translation of your market analysis report, adapted for Portuguese business audiences."\n\n<agent_call>\n{\n  "agent": "european-portuguese-business-translator",\n  "task": "Translate the Q4 market analysis report to European Portuguese (pt-PT), maintaining executive-level tone and clarity."\n}\n</agent_call>\n</example>\n\n<example>\nContext: User mentions they need a European Portuguese translation proactively during content creation.\n\nuser: "I'm drafting an article about operational excellence. Once I finish, I'll need it in European Portuguese too."\n\nassistant: "Understood. When you're ready, I'll use the european-portuguese-business-translator agent to translate your operational excellence article to European Portuguese. Just let me know when the English version is complete."\n</example>\n\n<example>\nContext: User has content with idioms that need careful adaptation.\n\nuser: "This executive summary has several English idioms like 'move the needle' and 'low-hanging fruit'. Can you translate it to European Portuguese?"\n\nassistant: "I'll use the european-portuguese-business-translator agent to translate your executive summary. This agent specializes in adapting English idioms appropriately for European Portuguese business contexts rather than translating them literally."\n\n<agent_call>\n{\n  "agent": "european-portuguese-business-translator",\n  "task": "Translate the executive summary to European Portuguese, ensuring all English idioms like 'move the needle' and 'low-hanging fruit' are adapted to natural European Portuguese business expressions rather than literal translations."\n}\n</agent_call>\n</example>
+description: |
+  Use this agent when you need to translate English business content into European Portuguese for executive audiences, particularly Oliver Wyman consulting materials targeting C-suite readers in Portugal. This agent specializes in producing natural, culturally-appropriate European Portuguese (pt-PT) translations that prioritize clarity over literal translation, adapt idioms/metaphors for Portuguese business norms, and produce output indistinguishable from content originally written in European Portuguese.
+
+  Examples of when to use this agent:
+
+  <example>
+  Context: User has just written an English business article about digital transformation and wants it translated to European Portuguese.
+
+  user: "I've finished writing this article on digital transformation strategies for financial services. Can you translate it to European Portuguese?"
+
+  assistant: "I'll use the european-portuguese-business-translator agent to translate your article into professional European Portuguese suitable for executive audiences in Portugal."
+
+  <agent_call>
+  {
+    "agent": "european-portuguese-business-translator",
+    "task": "Translate the digital transformation article to European Portuguese, ensuring clarity, natural expression, and appropriate adaptation of any English idioms or metaphors for Portuguese business readers."
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User is working on translating multiple Oliver Wyman insights and has just completed an English draft.
+
+  user: "Here's the final English version of our Q4 market analysis report. We need the European Portuguese translation for our Portugal clients."
+
+  assistant: "I'll use the european-portuguese-business-translator agent to create a professional European Portuguese translation of your market analysis report, adapted for Portuguese business audiences."
+
+  <agent_call>
+  {
+    "agent": "european-portuguese-business-translator",
+    "task": "Translate the Q4 market analysis report to European Portuguese (pt-PT), maintaining executive-level tone and clarity."
+  }
+  </agent_call>
+  </example>
+
+  <example>
+  Context: User mentions they need a European Portuguese translation proactively during content creation.
+
+  user: "I'm drafting an article about operational excellence. Once I finish, I'll need it in European Portuguese too."
+
+  assistant: "Understood. When you're ready, I'll use the european-portuguese-business-translator agent to translate your operational excellence article to European Portuguese. Just let me know when the English version is complete."
+  </example>
+
+  <example>
+  Context: User has content with idioms that need careful adaptation.
+
+  user: "This executive summary has several English idioms like 'move the needle' and 'low-hanging fruit'. Can you translate it to European Portuguese?"
+
+  assistant: "I'll use the european-portuguese-business-translator agent to translate your executive summary. This agent specializes in adapting English idioms appropriately for European Portuguese business contexts rather than translating them literally."
+
+  <agent_call>
+  {
+    "agent": "european-portuguese-business-translator",
+    "task": "Translate the executive summary to European Portuguese, ensuring all English idioms like 'move the needle' and 'low-hanging fruit' are adapted to natural European Portuguese business expressions rather than literal translations."
+  }
+  </agent_call>
+  </example>
 model: inherit
 color: yellow
 ---

@@ -1,6 +1,50 @@
 ---
 name: german-translation-specialist
-description: Use this agent when translating English business content into German for professional audiences, particularly Oliver Wyman consulting materials targeting C-suite executives and senior business leaders in Germany. This agent should be invoked proactively whenever:\n\n- The user provides English source text and specifies German as the target language\n- The user requests translation to multiple languages including German\n- The content type is business insights, executive reports, industry analysis, or professional consulting materials\n- The goal is to achieve natural, non-translated-sounding German that meets executive-level quality standards\n\nExamples of when to use this agent:\n\n<example>\nContext: User is working on translating an Oliver Wyman article about digital transformation for German executives.\n\nuser: "Please translate this article about digital transformation strategies into German: 'Companies must embrace digital transformation to remain competitive in today's rapidly changing market...'"\n\nassistant: "I'll use the Task tool to launch the german-translation-specialist agent to translate this business content into natural, executive-level German."\n\n<commentary>\nThe user has explicitly requested German translation of business content. The german-translation-specialist agent is designed specifically for this task, with expertise in avoiding literal translations and producing natural German that doesn't sound translated.\n</commentary>\n</example>\n\n<example>\nContext: User is translating a multi-language business report and needs German as one of the target languages.\n\nuser: "I need to translate this quarterly report into French, German, and Spanish for our European offices."\n\nassistant: "I'll coordinate translations for all three languages. Let me start by using the german-translation-specialist agent for the German version."\n\n<commentary>\nThe user needs German translation as part of a multi-language request. The german-translation-specialist should be invoked to handle the German portion, ensuring it meets the high standards for executive-level business content.\n</commentary>\n</example>\n\n<example>\nContext: User has just completed writing an English business insight article and the system should proactively suggest translation.\n\nuser: "I've finished the article on supply chain resilience strategies."\n\nassistant: "Great work on completing the article. Since this is Oliver Wyman content, would you like me to use the german-translation-specialist agent to create a German version for your German-speaking executive audience?"\n\n<commentary>\nProactive suggestion: After content creation, the system recognizes this is business content that may need German translation and offers to use the specialized agent.\n</commentary>\n</example>
+description: |
+  Use this agent when translating English business content into German for professional audiences, particularly Oliver Wyman consulting materials targeting C-suite executives and senior business leaders in Germany. This agent should be invoked proactively whenever:
+
+  - The user provides English source text and specifies German as the target language
+  - The user requests translation to multiple languages including German
+  - The content type is business insights, executive reports, industry analysis, or professional consulting materials
+  - The goal is to achieve natural, non-translated-sounding German that meets executive-level quality standards
+
+  Examples of when to use this agent:
+
+  <example>
+  Context: User is working on translating an Oliver Wyman article about digital transformation for German executives.
+
+  user: "Please translate this article about digital transformation strategies into German: 'Companies must embrace digital transformation to remain competitive in today's rapidly changing market...'"
+
+  assistant: "I'll use the Task tool to launch the german-translation-specialist agent to translate this business content into natural, executive-level German."
+
+  <commentary>
+  The user has explicitly requested German translation of business content. The german-translation-specialist agent is designed specifically for this task, with expertise in avoiding literal translations and producing natural German that doesn't sound translated.
+  </commentary>
+  </example>
+
+  <example>
+  Context: User is translating a multi-language business report and needs German as one of the target languages.
+
+  user: "I need to translate this quarterly report into French, German, and Spanish for our European offices."
+
+  assistant: "I'll coordinate translations for all three languages. Let me start by using the german-translation-specialist agent for the German version."
+
+  <commentary>
+  The user needs German translation as part of a multi-language request. The german-translation-specialist should be invoked to handle the German portion, ensuring it meets the high standards for executive-level business content.
+  </commentary>
+  </example>
+
+  <example>
+  Context: User has just completed writing an English business insight article and the system should proactively suggest translation.
+
+  user: "I've finished the article on supply chain resilience strategies."
+
+  assistant: "Great work on completing the article. Since this is Oliver Wyman content, would you like me to use the german-translation-specialist agent to create a German version for your German-speaking executive audience?"
+
+  <commentary>
+  Proactive suggestion: After content creation, the system recognizes this is business content that may need German translation and offers to use the specialized agent.
+  </commentary>
+  </example>
 model: inherit
 color: orange
 ---

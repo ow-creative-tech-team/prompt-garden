@@ -1,6 +1,52 @@
 ---
 name: simplified-chinese-business-translator
-description: Use this agent when translating English business content into Simplified Chinese for professional audiences in mainland China. This agent specializes in creating native-feeling Chinese translations that are culturally appropriate for C-suite executives and senior business leaders.\n\nExamples of when to use this agent:\n\n<example>\nContext: User is working on translating an Oliver Wyman business article about digital transformation strategies.\n\nuser: "Please translate this article about digital transformation into Chinese: 'Companies must leverage digital transformation to remain competitive in today's rapidly changing market...'"\n\nassistant: "I'll use the chinese-business-translator agent to translate this content into natural, executive-level Simplified Chinese."\n\n<agent call to chinese-business-translator with the article content>\n\nassistant: "Here is the Chinese translation. The agent has restructured the content to follow natural Chinese business writing conventions and used sophisticated vocabulary appropriate for senior executives in China."\n</example>\n\n<example>\nContext: User has just completed writing a business insight piece and wants to make it available in Chinese.\n\nuser: "I've finished writing this piece on asset management trends. Can you translate it to Chinese for our China audience?"\n\nassistant: "I'll use the chinese-business-translator agent to create a professional Chinese translation suitable for senior business readers in mainland China."\n\n<agent call to chinese-business-translator>\n\nassistant: "The translation is complete. The agent has adapted the content culturally for Chinese executives and flagged two technical terms for human review to ensure they align with your preferred terminology."\n</example>\n\n<example>\nContext: User is preparing multilingual content and needs Chinese translation as part of a batch.\n\nuser: "Translate this executive summary into all target languages"\n\nassistant: "I'll coordinate translations across all languages. For Chinese, I'm using the chinese-business-translator agent to ensure the translation reads naturally for mainland China business audiences."\n\n<agent call to chinese-business-translator for Chinese portion>\n\nassistant: "Chinese translation complete. The agent has ensured the content maintains executive-level sophistication and native Chinese expression patterns."\n</example>\n\nThis agent should be used proactively when:\n- Any English business content needs translation to Simplified Chinese\n- Content is intended for professional/executive audiences in China\n- High-quality, native-feeling Chinese is required (not just literal translation)\n- Content includes business terminology, frameworks, or strategic concepts\n- Oliver Wyman branded content needs translation with proper formatting (® symbols, etc.)
+description: |
+  Use this agent when translating English business content into Simplified Chinese for professional audiences in mainland China. This agent specializes in creating native-feeling Chinese translations that are culturally appropriate for C-suite executives and senior business leaders.
+
+  Examples of when to use this agent:
+
+  <example>
+  Context: User is working on translating an Oliver Wyman business article about digital transformation strategies.
+
+  user: "Please translate this article about digital transformation into Chinese: 'Companies must leverage digital transformation to remain competitive in today's rapidly changing market...'"
+
+  assistant: "I'll use the chinese-business-translator agent to translate this content into natural, executive-level Simplified Chinese."
+
+  <agent call to chinese-business-translator with the article content>
+
+  assistant: "Here is the Chinese translation. The agent has restructured the content to follow natural Chinese business writing conventions and used sophisticated vocabulary appropriate for senior executives in China."
+  </example>
+
+  <example>
+  Context: User has just completed writing a business insight piece and wants to make it available in Chinese.
+
+  user: "I've finished writing this piece on asset management trends. Can you translate it to Chinese for our China audience?"
+
+  assistant: "I'll use the chinese-business-translator agent to create a professional Chinese translation suitable for senior business readers in mainland China."
+
+  <agent call to chinese-business-translator>
+
+  assistant: "The translation is complete. The agent has adapted the content culturally for Chinese executives and flagged two technical terms for human review to ensure they align with your preferred terminology."
+  </example>
+
+  <example>
+  Context: User is preparing multilingual content and needs Chinese translation as part of a batch.
+
+  user: "Translate this executive summary into all target languages"
+
+  assistant: "I'll coordinate translations across all languages. For Chinese, I'm using the chinese-business-translator agent to ensure the translation reads naturally for mainland China business audiences."
+
+  <agent call to chinese-business-translator for Chinese portion>
+
+  assistant: "Chinese translation complete. The agent has ensured the content maintains executive-level sophistication and native Chinese expression patterns."
+  </example>
+
+  This agent should be used proactively when:
+  - Any English business content needs translation to Simplified Chinese
+  - Content is intended for professional/executive audiences in China
+  - High-quality, native-feeling Chinese is required (not just literal translation)
+  - Content includes business terminology, frameworks, or strategic concepts
+  - Oliver Wyman branded content needs translation with proper formatting (® symbols, etc.)
 model: inherit
 color: red
 ---

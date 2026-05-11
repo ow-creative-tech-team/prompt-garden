@@ -1,6 +1,45 @@
 ---
 name: prompt-enhancer
-description: Use this agent when you need to analyze translation quality feedback patterns and generate improved versions of translation prompts. This agent should be invoked after collecting evaluation feedback from multiple translations (typically 10-20 samples) to identify systematic issues and create targeted prompt improvements.\n\nExamples:\n\n<example>\nContext: User has collected 10+ evaluations for Japanese translations showing consistent issues.\n\nuser: "I have feedback from 15 Japanese translations. Most show 'Good' or 'Fair' ratings with similar issues about overly literal business terms."\n\nassistant: "I'll use the prompt-enhancer agent to analyze these feedback patterns and create an improved version of the Japanese translation prompt that addresses these systematic issues."\n\n<commentary>\nThe user has aggregated feedback showing a pattern of issues. Use the prompt-enhancer agent to perform systematic analysis and generate an improved prompt version.\n</commentary>\n</example>\n\n<example>\nContext: User wants to improve a specific language prompt based on evaluator feedback.\n\nuser: "The French translations keep getting flagged for Anglicisms and unnatural phrasing. Can you improve the French prompt?"\n\nassistant: "I'll use the prompt-enhancer agent to analyze the French evaluator feedback and generate an improved prompt version that specifically addresses Anglicisms and natural French expression patterns."\n\n<commentary>\nThe user has identified a recurring issue in French translations. Use the prompt-enhancer agent to create a targeted improvement addressing this specific pattern.\n</commentary>\n</example>\n\n<example>\nContext: Proactive prompt improvement after batch evaluation.\n\nuser: "I've finished evaluating 20 Chinese translations"\n\nassistant: "Let me use the prompt-enhancer agent to analyze the Chinese evaluation feedback patterns and create an improved prompt version if there are systematic issues to address."\n\n<commentary>\nAfter completing a batch of evaluations, proactively use the prompt-enhancer agent to identify patterns and generate improvements.\n</commentary>\n</example>
+description: |
+  Use this agent when you need to analyze translation quality feedback patterns and generate improved versions of translation prompts. This agent should be invoked after collecting evaluation feedback from multiple translations (typically 10-20 samples) to identify systematic issues and create targeted prompt improvements.
+
+  Examples:
+
+  <example>
+  Context: User has collected 10+ evaluations for Japanese translations showing consistent issues.
+
+  user: "I have feedback from 15 Japanese translations. Most show 'Good' or 'Fair' ratings with similar issues about overly literal business terms."
+
+  assistant: "I'll use the prompt-enhancer agent to analyze these feedback patterns and create an improved version of the Japanese translation prompt that addresses these systematic issues."
+
+  <commentary>
+  The user has aggregated feedback showing a pattern of issues. Use the prompt-enhancer agent to perform systematic analysis and generate an improved prompt version.
+  </commentary>
+  </example>
+
+  <example>
+  Context: User wants to improve a specific language prompt based on evaluator feedback.
+
+  user: "The French translations keep getting flagged for Anglicisms and unnatural phrasing. Can you improve the French prompt?"
+
+  assistant: "I'll use the prompt-enhancer agent to analyze the French evaluator feedback and generate an improved prompt version that specifically addresses Anglicisms and natural French expression patterns."
+
+  <commentary>
+  The user has identified a recurring issue in French translations. Use the prompt-enhancer agent to create a targeted improvement addressing this specific pattern.
+  </commentary>
+  </example>
+
+  <example>
+  Context: Proactive prompt improvement after batch evaluation.
+
+  user: "I've finished evaluating 20 Chinese translations"
+
+  assistant: "Let me use the prompt-enhancer agent to analyze the Chinese evaluation feedback patterns and create an improved prompt version if there are systematic issues to address."
+
+  <commentary>
+  After completing a batch of evaluations, proactively use the prompt-enhancer agent to identify patterns and generate improvements.
+  </commentary>
+  </example>
 model: inherit
 color: cyan
 ---
