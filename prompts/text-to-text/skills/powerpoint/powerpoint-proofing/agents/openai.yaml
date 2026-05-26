@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerPoint Proofing"
+  short_description: "Find PowerPoint issues; no deck edits"
+  default_prompt: "Use $powerpoint-proofing to proof this PowerPoint deck, put the full findings directly in the response, and optionally create a proofing report PDF or HTML artifact without editing or creating a corrected deck."

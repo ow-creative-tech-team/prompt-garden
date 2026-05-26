@@ -1,123 +1,163 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Prompt Garden Schema",
-  "description": "Schema for validating prompt YAML frontmatter",
-  "type": "object",
-  "required": [
-    "id",
-    "title",
-    "type",
-    "category",
-    "description",
-    "prompt_role",
-    "tags",
-    "version",
-    "date_created",
-    "date_modified"
+  "description": "Schema for validating prompt YAML frontmatter. Supports standard Prompt Garden prompts and agent-style translation prompts.",
+  "oneOf": [
+    {
+      "$ref": "#/definitions/standard_prompt"
+    },
+    {
+      "$ref": "#/definitions/agent_prompt"
+    }
   ],
-  "properties": {
-    "id": {
-      "type": "string",
-      "pattern": "^[a-z0-9-]+$",
-      "description": "Unique identifier in kebab-case"
-    },
-    "title": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Human-readable title"
-    },
-    "type": {
-      "type": "string",
-      "enum": ["text-to-image", "text-to-text", "text-to-code"],
-      "description": "Primary prompt type"
-    },
-    "category": {
-      "type": "string",
-      "description": "Main category (e.g., photography, illustration, creative, technical)"
-    },
-    "sub_category": {
-      "type": "string",
-      "description": "Optional deeper categorization"
-    },
-    "description": {
-      "type": "string",
-      "minLength": 10,
-      "description": "Short description of what the prompt generates"
-    },
-    "usage_notes": {
-      "type": "string",
-      "description": "Best use cases and optimization tips"
-    },
-    "prompt_role": {
-      "type": "string",
-      "enum": [
-        "style", "scene", "subject",
-        "tone", "format", "topic",
-        "pattern", "context", "purpose",
-        "template", "standalone"
+  "definitions": {
+    "standard_prompt": {
+      "type": "object",
+      "required": [
+        "id",
+        "title",
+        "type",
+        "category",
+        "description",
+        "prompt_role",
+        "tags",
+        "version",
+        "date_created",
+        "date_modified"
       ],
-      "description": "The role of this prompt in composition. Text-to-image: style/scene/subject. Text-to-text: tone/format/topic. Text-to-code: pattern/context/purpose. All: template/standalone"
-    },
-    "tags": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "minItems": 3,
-      "description": "Minimum 3 tags for categorization"
-    },
-    "related_prompts": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "relationship"],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of related prompt"
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Unique identifier in kebab-case"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable title"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["text-to-image", "text-to-text", "text-to-code"],
+          "description": "Primary prompt type"
+        },
+        "category": {
+          "type": "string",
+          "description": "Main category (e.g., photography, illustration, creative, technical, translation)"
+        },
+        "sub_category": {
+          "type": "string",
+          "description": "Optional deeper categorization"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "Short description of what the prompt generates"
+        },
+        "usage_notes": {
+          "type": "string",
+          "description": "Best use cases and optimization tips"
+        },
+        "prompt_role": {
+          "type": "string",
+          "enum": [
+            "style", "scene", "subject",
+            "tone", "format", "topic",
+            "pattern", "context", "purpose",
+            "template", "standalone"
+          ],
+          "description": "The role of this prompt in composition. Text-to-image: style/scene/subject. Text-to-text: tone/format/topic. Text-to-code: pattern/context/purpose. All: template/standalone"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
           },
-          "relationship": {
-            "type": "string",
-            "enum": ["companion", "alternative", "prerequisite"],
-            "description": "Type of relationship"
-          },
-          "combination_notes": {
-            "type": "string",
-            "description": "Notes on how to combine prompts"
+          "minItems": 3,
+          "description": "Minimum 3 tags for categorization"
+        },
+        "related_prompts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "relationship"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID of related prompt"
+              },
+              "relationship": {
+                "type": "string",
+                "enum": ["companion", "alternative", "prerequisite"],
+                "description": "Type of relationship"
+              },
+              "combination_notes": {
+                "type": "string",
+                "description": "Notes on how to combine prompts"
+              }
+            }
           }
+        },
+        "compatible_models": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of compatible AI models"
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
+          "description": "Semantic version number"
+        },
+        "date_created": {
+          "type": "string",
+          "format": "date",
+          "description": "Creation date (YYYY-MM-DD)"
+        },
+        "date_modified": {
+          "type": "string",
+          "format": "date",
+          "description": "Last modification date (YYYY-MM-DD)"
+        },
+        "author": {
+          "type": "string",
+          "description": "Optional author name"
+        },
+        "format": {
+          "type": "string",
+          "enum": ["markdown", "json"],
+          "description": "File format used"
         }
       }
     },
-    "compatible_models": {
-      "type": "array",
-      "items": {
-        "type": "string"
+    "agent_prompt": {
+      "type": "object",
+      "required": [
+        "name",
+        "description"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Agent identifier in kebab-case"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 10,
+          "description": "When and how to use this agent"
+        },
+        "model": {
+          "type": "string",
+          "description": "Optional model routing preference, such as inherit"
+        },
+        "color": {
+          "type": "string",
+          "description": "Optional UI color label for the agent"
+        }
       },
-      "description": "List of compatible AI models"
-    },
-    "version": {
-      "type": "string",
-      "pattern": "^[0-9]+\\.[0-9]+(\\.[0-9]+)?$",
-      "description": "Semantic version number"
-    },
-    "date_created": {
-      "type": "string",
-      "format": "date",
-      "description": "Creation date (YYYY-MM-DD)"
-    },
-    "date_modified": {
-      "type": "string",
-      "format": "date",
-      "description": "Last modification date (YYYY-MM-DD)"
-    },
-    "author": {
-      "type": "string",
-      "description": "Optional author name"
-    },
-    "format": {
-      "type": "string",
-      "enum": ["markdown", "json"],
-      "description": "File format used"
+      "additionalProperties": true
     }
   }
 }

@@ -26,6 +26,8 @@ This repository is simultaneously:
 
 All prompts are stored as either `.md` (Markdown) or `.json` files with YAML frontmatter for metadata.
 
+Codex skill packages under `prompts/text-to-text/skills/` are a special case. They use a `SKILL.md` file with Codex skill frontmatter, plus optional `AGENTS.md`, `agents/`, `references/`, and `scripts/` files. The standard prompt YAML schema applies to prompt files, not to skill package support files.
+
 ---
 
 ## Repository Structure
@@ -49,10 +51,25 @@ prompt-garden/
 │   │   └── templates/             # Reusable components
 │   │
 │   ├── text-to-text/
+│   │   ├── brand-voice/           # Brand voice prompts and guidance
 │   │   ├── creative/              # Creative writing prompts
-│   │   ├── technical/             # Technical writing prompts
 │   │   ├── marketing/             # Marketing copy prompts
-│   │   └── templates/             # Reusable templates
+│   │   ├── skills/                # Codex skill packages
+│   │   │   └── powerpoint/
+│   │   │       └── powerpoint-proofing/
+│   │   │           ├── SKILL.md          # Skill definition and workflow
+│   │   │           ├── AGENTS.md         # Directory-level agent guide
+│   │   │           ├── agents/           # Skill agent metadata
+│   │   │           ├── references/       # Skill-specific rule references
+│   │   │           └── scripts/          # Skill helper scripts
+│   │   ├── technical/             # Technical writing prompts
+│   │   ├── templates/             # Reusable templates
+│   │   └── translation/           # Translation prompt systems
+│   │       └── translation-prompts-v1/
+│   │           ├── translators/        # Agent-style language translators
+│   │           ├── translators-lenAI/  # Standalone LenAI translator prompts
+│   │           ├── evaluator/          # Translation quality evaluator
+│   │           └── prompt-enhancer/    # Translation prompt improvement agent
 │   │
 │   └── text-to-code/
 │       ├── functions/             # Function generation prompts
@@ -165,7 +182,23 @@ code minimalist-product/_style.md
 
 ## YAML Schema
 
-### Required Fields
+Most prompt files use the standard Prompt Garden YAML schema below.
+
+Translation agents under `prompts/text-to-text/translation/translation-prompts-v1/translators/`, `evaluator/`, and `prompt-enhancer/` may instead use agent-style frontmatter:
+
+```yaml
+---
+name: french-business-translator
+description: |
+  Use this agent when translating English business content into French.
+model: inherit
+color: blue
+---
+```
+
+Standalone LenAI translator prompts under `translators-lenAI/` are plain Markdown system prompts and may omit YAML frontmatter.
+
+### Standard Prompt Required Fields
 
 ```yaml
 ---
@@ -192,7 +225,7 @@ author: your-git-hub-user
 ```
 
 
-### Field Descriptions
+### Standard Prompt Field Descriptions
 
 | Field | Type | Description |
 |-------|------|-------------|
