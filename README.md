@@ -52,7 +52,7 @@ prompt-garden/
 │   │
 │   ├── text-to-text/
 │   │   ├── brand-voice/           # Brand voice prompts and guidance
-│   │   │   └── agents/            # Brand voice reviewer prompts
+│   │   │   └── brand-voice-reviewers/ # Brand voice reviewer prompts
 │   │   │       ├── email-reviewer-prompt.md
 │   │   │       ├── presentation-reviewer-prompt.md
 │   │   │       ├── publication-reviewer-prompt.md
@@ -190,7 +190,7 @@ code minimalist-product/_style.md
 
 Most prompt files use the standard Prompt Garden YAML schema below.
 
-Brand voice reviewer prompts under `prompts/text-to-text/brand-voice/agents/` use the standard Prompt Garden YAML schema. They are prompt files, not Codex skill package agent metadata.
+Brand voice reviewer prompts under `prompts/text-to-text/brand-voice/brand-voice-reviewers/` use the standard Prompt Garden YAML schema. They are prompt files, not Codex skill package agent metadata.
 
 Translation agents under `prompts/text-to-text/translation/translation-prompts-v1/translators/`, `evaluator/`, and `prompt-enhancer/` may instead use agent-style frontmatter:
 
