@@ -1,0 +1,4 @@
+interface:
+  display_name: "Presentation Review"
+  short_description: "Review decks and slide content."
+  default_prompt: "Review this presentation or slide content for Oliver Wyman brand voice, AP Style, narrative flow, cognitive load, visual brand compliance, and delivery readiness."

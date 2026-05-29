@@ -1,0 +1,4 @@
+interface:
+  display_name: "Publication Review"
+  short_description: "Review long-form content drafts."
+  default_prompt: "Review this publication draft for Oliver Wyman brand voice, structure, evidence, house style, naming, and publication readiness."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Email Review"
+  short_description: "Review emails for send-readiness."
+  default_prompt: "Review this email for Oliver Wyman brand voice, structure, tone, house style, naming, and send-readiness."
