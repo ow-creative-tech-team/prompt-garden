@@ -1,0 +1,4 @@
+interface:
+  display_name: "Social Media Review"
+  short_description: "Review social posts for brand fit."
+  default_prompt: "Review this social media post for Oliver Wyman brand voice, platform fit, audience value, house style, and naming."

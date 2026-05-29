@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brand Voice Check"
+  short_description: "Review short brand copy drafts."
+  default_prompt: "Review this copy for Oliver Wyman brand voice, house style, naming, and clarity."
