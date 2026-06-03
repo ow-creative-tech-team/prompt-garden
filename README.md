@@ -61,6 +61,13 @@ prompt-garden/
 │   │   ├── creative/              # Creative writing prompts
 │   │   ├── marketing/             # Marketing copy prompts
 │   │   ├── skills/                # Codex skill packages
+│   │   │   ├── brand-voice-review-skills/
+│   │   │   │   ├── README.md
+│   │   │   │   ├── brand-voice-check/
+│   │   │   │   ├── email-review/
+│   │   │   │   ├── presentation-review/
+│   │   │   │   ├── publication-review/
+│   │   │   │   └── social-media-review/
 │   │   │   └── powerpoint/
 │   │   │       └── powerpoint-proofing/
 │   │   │           ├── SKILL.md          # Skill definition and workflow
