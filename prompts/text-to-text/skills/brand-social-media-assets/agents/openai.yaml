@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Brand Social Media Assets"
+  short_description: "Create on-brand social media assets."
+  default_prompt: "Create an on-brand social media asset using the bundled Oliver Wyman social media dimensions, colors, typography, and layout rules."
