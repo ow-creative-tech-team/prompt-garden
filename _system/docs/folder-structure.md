@@ -19,32 +19,33 @@ prompt-garden/
 │   └── docs/
 │       └── folder-structure.md       # This file
 │
-├── text-to-image/                     # Image generation prompts
-│   ├── styles/
-│   │   ├── photography/              # Photography styles
-│   │   │   ├── urban-bw/            # Example: Urban B&W style
-│   │   │   │   ├── _style.md        # Base style definition
-│   │   │   │   ├── scene-*.md       # Scene variants
-│   │   │   │   └── subject-*.md     # Subject variants
-│   │   │   ├── portrait-natural/
-│   │   │   └── product-studio/
-│   │   ├── illustration/             # Illustration styles
-│   │   ├── 3d-render/               # 3D rendering styles
-│   │   └── digital-art/             # Digital art styles
-│   ├── subjects/                     # Standalone subjects (not style-specific)
-│   └── templates/                    # Reusable image prompt components
-│
-├── text-to-text/                      # Text generation prompts
-│   ├── creative/                     # Creative writing
-│   ├── technical/                    # Technical documentation
-│   ├── marketing/                    # Marketing copy
-│   └── templates/                    # Reusable text templates
-│
-├── text-to-code/                      # Code generation prompts
-│   ├── functions/                    # Function generation
-│   ├── scripts/                      # Script generation
-│   ├── snippets/                     # Code snippet generation
-│   └── templates/                    # Code templates
+├── prompts/                          # All prompt content
+│   ├── text-to-image/                # Image generation prompts
+│   │   ├── styles/
+│   │   │   ├── photography/          # Photography styles
+│   │   │   │   ├── urban-bw/         # Example: Urban B&W style
+│   │   │   │   │   ├── _style.md     # Base style definition
+│   │   │   │   │   ├── scene-*.md    # Scene variants
+│   │   │   │   │   └── subject-*.md  # Subject variants
+│   │   │   │   ├── portrait-natural/
+│   │   │   │   └── product-studio/
+│   │   │   ├── illustration/         # Illustration styles
+│   │   │   ├── 3d-render/            # 3D rendering styles
+│   │   │   └── digital-art/          # Digital art styles
+│   │   ├── subjects/                 # Standalone subjects
+│   │   └── templates/                # Reusable image prompt components
+│   │
+│   ├── text-to-text/                 # Text generation prompts
+│   │   ├── creative/                 # Creative writing
+│   │   ├── technical/                # Technical documentation
+│   │   ├── marketing/                # Marketing copy
+│   │   └── templates/                # Reusable text templates
+│   │
+│   └── text-to-code/                 # Code generation prompts
+│       ├── functions/                # Function generation
+│       ├── scripts/                  # Script generation
+│       ├── snippets/                 # Code snippet generation
+│       └── templates/                # Code templates
 │
 ├── .gitignore                        # Git ignore rules
 ├── README.md                         # Main documentation
@@ -84,7 +85,7 @@ prompt-garden/
 
 ### 3. Style Folder Organization
 
-For `text-to-image/styles/`, each specific style gets its own folder:
+For `prompts/text-to-image/styles/`, each specific style gets its own folder:
 
 ```
 photography/urban-bw/
@@ -104,13 +105,13 @@ photography/urban-bw/
 
 **Standalone prompts** go in category root or subjects:
 ```
-text-to-text/marketing/email-product-launch.md
-text-to-image/subjects/business-person.md
+prompts/text-to-text/marketing/email-product-launch.md
+prompts/text-to-image/subjects/business-person.md
 ```
 
 **Modular prompts** stay grouped in style folders:
 ```
-text-to-image/styles/photography/urban-bw/[style+scenes+subjects]
+prompts/text-to-image/styles/photography/urban-bw/[style+scenes+subjects]
 ```
 
 ## Navigation Patterns
@@ -119,21 +120,21 @@ text-to-image/styles/photography/urban-bw/[style+scenes+subjects]
 
 **By type:**
 ```
-Need image prompt → text-to-image/
-Need text prompt  → text-to-text/
-Need code prompt  → text-to-code/
+Need image prompt → prompts/text-to-image/
+Need text prompt  → prompts/text-to-text/
+Need code prompt  → prompts/text-to-code/
 ```
 
 **By purpose:**
 ```
-Photography style     → text-to-image/styles/photography/
-Marketing copy        → text-to-text/marketing/
-Python function       → text-to-code/functions/
+Photography style     → prompts/text-to-image/styles/photography/
+Marketing copy        → prompts/text-to-text/marketing/
+Python function       → prompts/text-to-code/functions/
 ```
 
 **By modularity:**
 ```
-Want to mix & match   → text-to-image/styles/[category]/[style]/
+Want to mix & match   → prompts/text-to-image/styles/[category]/[style]/
 Want complete prompt  → [category]/[type]/*.md
 Reusable component    → [category]/templates/
 ```
@@ -143,22 +144,22 @@ Reusable component    → [category]/templates/
 **New style:**
 ```bash
 # 1. Create style folder
-mkdir -p text-to-image/styles/photography/my-new-style
+mkdir -p prompts/text-to-image/styles/photography/my-new-style
 
 # 2. Copy base template
 cp _system/templates/style-template.md \
-   text-to-image/styles/photography/my-new-style/_style.md
+   prompts/text-to-image/styles/photography/my-new-style/_style.md
 
 # 3. Add scenes/subjects as needed
 cp _system/templates/scene-template.md \
-   text-to-image/styles/photography/my-new-style/scene-example.md
+   prompts/text-to-image/styles/photography/my-new-style/scene-example.md
 ```
 
 **New standalone prompt:**
 ```bash
 # Copy appropriate template
 cp _system/templates/standalone-template.md \
-   text-to-text/marketing/my-prompt.md
+   prompts/text-to-text/marketing/my-prompt.md
 ```
 
 ## Folder Naming Rules
@@ -225,14 +226,14 @@ stuff/                 # Not descriptive
 
 **Initial state:**
 ```
-text-to-image/styles/photography/
+prompts/text-to-image/styles/photography/
 ├── urban-bw/
 └── portrait-natural/
 ```
 
 **After growth:**
 ```
-text-to-image/styles/photography/
+prompts/text-to-image/styles/photography/
 ├── urban/
 │   ├── urban-bw/
 │   ├── urban-color/
@@ -257,7 +258,7 @@ text-to-image/styles/photography/
 Prompts can reference across categories using `related_prompts`:
 
 ```yaml
-# In text-to-image/styles/photography/product-studio/_style.md
+# In prompts/text-to-image/styles/photography/product-studio/_style.md
 related_prompts:
   - id: product-description-concise
     relationship: companion
@@ -271,7 +272,7 @@ This links an image style with a text-to-text product description prompt.
 **Don't delete old prompts.** Instead:
 
 ```
-text-to-image/styles/photography/
+prompts/text-to-image/styles/photography/
 ├── urban-bw/
 └── _archive/
     └── urban-bw-old-version/
@@ -297,9 +298,9 @@ text-to-image/styles/photography/
 - Docs: `_system/docs/`
 
 **Prompt Categories:**
-- Images: `text-to-image/`
-- Text: `text-to-text/`
-- Code: `text-to-code/`
+- Images: `prompts/text-to-image/`
+- Text: `prompts/text-to-text/`
+- Code: `prompts/text-to-code/`
 
 **Key Files:**
 - Main docs: `README.md`

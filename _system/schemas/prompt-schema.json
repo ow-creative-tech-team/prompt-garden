@@ -23,7 +23,8 @@
         "tags",
         "version",
         "date_created",
-        "date_modified"
+        "date_modified",
+        "format"
       ],
       "properties": {
         "id": {

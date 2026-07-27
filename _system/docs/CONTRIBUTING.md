@@ -58,9 +58,9 @@ git checkout -b feature/your-prompt-name
 Determine which category and role:
 
 **Categories:**
-- `text-to-image/` - Image generation prompts
-- `text-to-text/` - Text generation prompts
-- `text-to-code/` - Code generation prompts
+- `text-to-image` - Image generation prompts
+- `text-to-text` - Text generation prompts
+- `text-to-code` - Code generation prompts
 
 **Roles:**
 - `style` - Base aesthetic/style definition
@@ -75,13 +75,13 @@ Copy from `_system/templates/`:
 
 ```bash
 # For a style prompt
-cp _system/templates/style-template.md text-to-image/styles/photography/my-style/_style.md
+cp _system/templates/style-template.md prompts/text-to-image/styles/photography/my-style/_style.md
 
 # For a scene prompt
-cp _system/templates/scene-template.md text-to-image/styles/photography/my-style/scene-night-city.md
+cp _system/templates/scene-template.md prompts/text-to-image/styles/photography/my-style/scene-night-city.md
 
 # For a standalone prompt
-cp _system/templates/standalone-template.md text-to-text/marketing/email-campaign.md
+cp _system/templates/standalone-template.md prompts/text-to-text/marketing/email-campaign.md
 ```
 
 #### 3. Name Your File Correctly
@@ -119,14 +119,14 @@ title: Human Readable Title         # Clear and descriptive
 type: text-to-image                 # text-to-image | text-to-text | text-to-code
 category: photography               # Main category
 description: What this generates    # Minimum 10 characters
-prompt_role: style                  # style | scene | subject | standalone | template
+prompt_role: style                  # style | scene | subject | tone | format | topic | pattern | context | purpose | standalone | template
 tags:                               # Minimum 3 tags
   - photography
   - black-and-white
   - urban
-version: 1.0                        # Start at 1.0
-date_created: 2025-10-04           # Today's date (YYYY-MM-DD)
-date_modified: 2025-10-04          # Same as created for new prompts
+version: "1.0"                      # Start at 1.0
+date_created: "2025-10-04"         # Today's date (YYYY-MM-DD)
+date_modified: "2025-10-04"        # Same as created for new prompts
 format: markdown                    # markdown | json
 ---
 ```
@@ -393,9 +393,9 @@ related_prompts:
 compatible_models:
   - midjourney-v6
   - dall-e-3
-version: 1.0
-date_created: 2025-10-04
-date_modified: 2025-10-04
+version: "1.0"
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 author: jane-doe
 format: markdown
 ---
@@ -460,12 +460,12 @@ grep -r "id: your-proposed-id" .
 
 ### Date Formatting
 
-**Always use ISO 8601 format:** `YYYY-MM-DD`
+**Always use quoted ISO 8601 format:** `"YYYY-MM-DD"`
 
 ```yaml
 # Correct
-date_created: 2025-10-04
-date_modified: 2025-10-04
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 
 # Incorrect
 date_created: 10/4/2025
@@ -587,11 +587,7 @@ git pull origin main
 
 # 2. Git will mark conflicts in your file
 # 3. Open file, look for:
-<<<<<<< HEAD
 Your changes
-=======
-Their changes
->>>>>>> main
 
 # 4. Edit to keep correct version
 # 5. Remove conflict markers
@@ -648,7 +644,7 @@ tags:
 date_created: 10/4/2025
 
 # ✅ Correct
-date_created: 2025-10-04
+date_created: "2025-10-04"
 ```
 
 **Solution:** Validate at [yamllint.com](http://www.yamllint.com/)

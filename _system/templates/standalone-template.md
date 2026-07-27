@@ -17,7 +17,7 @@ related_prompts:
     combination_notes:
 compatible_models:
   - 
-version: 1
+version: "1.0"
 date_created:
 date_modified:
 author:
