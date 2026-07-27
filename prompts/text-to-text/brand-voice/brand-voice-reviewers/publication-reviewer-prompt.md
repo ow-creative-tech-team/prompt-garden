@@ -13,8 +13,8 @@ tags:
   - "#editorial-review"
   - "#thought-leadership"
 version: "1.2"
-date_created: 2026-01-08
-date_modified: 2026-05-29
+date_created: "2026-01-08"
+date_modified: "2026-05-29"
 author: marjolene-paulo-ow
 format: markdown
 ---

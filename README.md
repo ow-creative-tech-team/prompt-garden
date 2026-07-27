@@ -26,7 +26,9 @@ This repository is simultaneously:
 
 All prompts are stored as either `.md` (Markdown) or `.json` files with YAML frontmatter for metadata.
 
-Codex skill packages under `prompts/text-to-text/skills/` are a special case. They use a `SKILL.md` file with Codex skill frontmatter, plus optional `AGENTS.md`, `agents/`, `references/`, and `scripts/` files. The standard prompt YAML schema applies to prompt files, not to skill package support files.
+Codex skill packages under `prompts/text-to-text/skills/` are a special case. They use a root-level `SKILL.md` file with Codex skill frontmatter, plus optional `AGENTS.md`, `README.md`, `agents/`, `references/`, and `scripts/` files. The standard prompt YAML schema applies to prompt files, not to skill package support files.
+
+README files inside prompt folders are support/navigation documentation and do not need standard prompt frontmatter.
 
 ---
 
@@ -72,6 +74,10 @@ prompt-garden/
 │   │   │   │   ├── presentation-review/
 │   │   │   │   ├── publication-review/
 │   │   │   │   └── social-media-review/
+│   │   │   ├── text-to-weavy-skill/
+│   │   │   │   ├── SKILL.md
+│   │   │   │   ├── README.md
+│   │   │   │   └── AGENTS.md
 │   │   │   └── powerpoint/
 │   │   │       └── powerpoint-proofing/
 │   │   │           ├── SKILL.md          # Skill definition and workflow
@@ -225,20 +231,25 @@ id: unique-identifier-kebab-case
 title: Human Readable Title
 type: text-to-image | text-to-text | text-to-code
 format: markdown | json
-version: 1.0
+version: "1.0"
 category: photography | illustration | creative | technical | etc.
 sub_category: deeper-categorization
-prompt_role: style | scene | subject | template | standalone
+prompt_role: style | scene | subject | tone | format | topic | pattern | context | purpose | template | standalone
 description: Short description of what this prompt generates
 usage_notes: Best use cases and tips for this prompt
-tags: #tag1; #tag 2;
-date_created: 2025-10-04
-date_modified: 2025-10-04
+tags:
+  - tag-one
+  - tag-two
+  - tag-three
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 related_prompts:
   - id: related-prompt-id
     relationship: companion | alternative | prerequisite
     combination_notes: How to combine these prompts
-recomended_models: #nanobanana #GPT-Image #FluxKontext
+compatible_models:
+  - gpt-4.1
+  - gpt-image
 author: your-git-hub-user
 ---
 ```
@@ -255,10 +266,10 @@ author: your-git-hub-user
 | `sub_category` | string | Optional deeper categorization |
 | `description` | string | What this prompt generates (min 10 chars) |
 | `usage_notes` | string | Best practices and use cases |
-| `prompt_role` | enum | Role in composition: style, scene, subject, template, standalone |
+| `prompt_role` | enum | Role in composition: style, scene, subject, tone, format, topic, pattern, context, purpose, template, standalone |
 | `tags` | array | Minimum 3 tags for searchability |
 | `related_prompts` | array | Links to related prompts with relationship type |
-| `recomended_models` | array | AI models this works with |
+| `compatible_models` | array | AI models this works with |
 | `version` | string | Semantic version (e.g., 1.0, 1.2.1) |
 | `date_created` | date | Creation date (YYYY-MM-DD) |
 | `date_modified` | date | Last modified date (YYYY-MM-DD) |

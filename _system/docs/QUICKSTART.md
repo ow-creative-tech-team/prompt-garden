@@ -8,34 +8,35 @@
 
 ```
 prompt-garden/
-├── text-to-image/          # Image generation prompts
-│   ├── styles/             # Organized by style categories
-│   │   └── [category]/[style-name]/
-│   │       ├── _style.md
-│   │       ├── scene-*.md
-│   │       └── subject-*.md
-│   ├── subjects/           # Standalone subjects
-│   └── templates/          # Reusable components
+├── prompts/
+│   ├── text-to-image/      # Image generation prompts
+│   │   ├── styles/         # Organized by style categories
+│   │   │   └── [category]/[style-name]/
+│   │   │       ├── _style.md
+│   │   │       ├── scene-*.md
+│   │   │       └── subject-*.md
+│   │   ├── subjects/       # Standalone subjects
+│   │   └── templates/      # Reusable components
 │
-├── text-to-text/           # Text generation prompts
-│   ├── creative/
-│   ├── technical/
-│   ├── marketing/
-│   │   └── [use-case]/
-│   │       ├── _tone.md
-│   │       ├── format-*.md
-│   │       └── topic-*.md
-│   └── templates/
+│   ├── text-to-text/       # Text generation prompts
+│   │   ├── creative/
+│   │   ├── technical/
+│   │   ├── marketing/
+│   │   │   └── [use-case]/
+│   │   │       ├── _tone.md
+│   │   │       ├── format-*.md
+│   │   │       └── topic-*.md
+│   │   └── templates/
 │
-├── text-to-code/           # Code generation prompts
-│   ├── functions/
-│   ├── scripts/
-│   ├── snippets/
-│   │   └── [feature]/
-│   │       ├── _pattern.md
-│   │       ├── context-*.md
-│   │       └── purpose-*.md
-│   └── templates/
+│   └── text-to-code/       # Code generation prompts
+│       ├── functions/
+│       ├── scripts/
+│       ├── snippets/
+│       │   └── [feature]/
+│       │       ├── _pattern.md
+│       │       ├── context-*.md
+│       │       └── purpose-*.md
+│       └── templates/
 │
 └── _system/
     ├── schemas/            # YAML validation
@@ -124,9 +125,9 @@ tags:
   - tag1
   - tag2
   - tag3  # minimum 3 tags
-version: 1.0
-date_created: 2025-10-04
-date_modified: 2025-10-04
+version: "1.0"
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 format: markdown
 ---
 ```
@@ -173,9 +174,9 @@ tags:
   - black-and-white
   - urban
   - high-contrast
-version: 1.0
-date_created: 2025-10-04
-date_modified: 2025-10-04
+version: "1.0"
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 format: markdown
 ---
 ```
@@ -194,9 +195,9 @@ tags:
   - professional
   - linkedin
   - conversational
-version: 1.0
-date_created: 2025-10-04
-date_modified: 2025-10-04
+version: "1.0"
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 format: markdown
 ---
 ```
@@ -215,9 +216,9 @@ tags:
   - async
   - error-handling
   - typescript
-version: 1.0
-date_created: 2025-10-04
-date_modified: 2025-10-04
+version: "1.0"
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 format: markdown
 ---
 ```

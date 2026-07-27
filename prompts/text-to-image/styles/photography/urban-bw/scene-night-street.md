@@ -25,9 +25,9 @@ compatible_models:
   - midjourney-v6
   - dall-e-3
   - stable-diffusion-xl
-version: 1.0
-date_created: 2025-10-04
-date_modified: 2025-10-04
+version: "1.0"
+date_created: "2025-10-04"
+date_modified: "2025-10-04"
 author: prompt-garden-team
 format: markdown
 ---
