@@ -1,0 +1,6 @@
+interface:
+  display_name: "PowerPoint Proofing"
+  short_description: "Proof PowerPoints with traceable findings"
+  default_prompt: "Use $powerpoint-proofing to proof this PowerPoint."
+policy:
+  allow_implicit_invocation: true

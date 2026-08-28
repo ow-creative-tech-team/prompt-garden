@@ -4,8 +4,7 @@ PROMPT GARDEN - REPOSITORY STRUCTURE
 📁 prompt-garden/
 │
 ├── 📄 README.md                    → Main documentation (start here!)
-├── 📄 CONTRIBUTING.md              → Contribution guidelines & workflow
-├── 📄 QUICKSTART.md                → 5-minute getting started guide
+├── 📄 AGENTS.md                    → Repository agent guidance
 ├── 📄 .gitignore                   → Git ignore rules (OS, OneDrive, etc.)
 │
 ├── 🛠️  _system/                     → Infrastructure (not prompts)
@@ -18,42 +17,55 @@ PROMPT GARDEN - REPOSITORY STRUCTURE
 │   │   ├── standalone-template.md
 │   │   └── template-component.md
 │   └── 📁 docs/
-│       └── folder-structure.md    → Detailed structure guide
+│       ├── folder-structure.md    → Detailed structure guide
+│       ├── QUICKSTART.md          → 5-minute getting started guide
+│       ├── CONTRIBUTING.md        → Contribution guidelines & workflow
+│       └── STRUCTURE.txt          → This structure map
 │
-├── 🖼️  text-to-image/              → Image generation prompts
-│   ├── 📁 styles/
-│   │   ├── 📁 photography/
-│   │   │   ├── 📁 urban-bw/       ✅ EXAMPLE (fully populated)
-│   │   │   │   ├── _style.md
-│   │   │   │   ├── scene-night-street.md
-│   │   │   │   └── subject-pedestrian.md
-│   │   │   ├── 📁 portrait-natural/
-│   │   │   └── 📁 product-studio/
-│   │   ├── 📁 illustration/
-│   │   ├── 📁 3d-render/
-│   │   └── 📁 digital-art/
-│   ├── 📁 subjects/               → Standalone subjects
-│   └── 📁 templates/              → Reusable image components
-│
-├── 📝 text-to-text/                → Text generation prompts
-│   ├── 📁 creative/
-│   ├── 📁 technical/
-│   ├── 📁 marketing/
-│   └── 📁 templates/
-│
-└── 💻 text-to-code/                → Code generation prompts
-    ├── 📁 functions/
-    ├── 📁 scripts/
-    ├── 📁 snippets/
-    └── 📁 templates/
+└── 📁 prompts/                     → Prompt and skill content
+    ├── 🖼️  text-to-image/          → Image generation prompts
+    │   ├── 📁 styles/
+    │   │   ├── 📁 photography/
+    │   │   │   ├── 📁 urban-bw/   ✅ EXAMPLE (fully populated)
+    │   │   │   ├── 📁 portrait-natural/
+    │   │   │   └── 📁 product-studio/
+    │   │   ├── 📁 illustration/
+    │   │   ├── 📁 3d-render/
+    │   │   └── 📁 digital-art/
+    │   ├── 📁 subjects/           → Standalone subjects
+    │   └── 📁 templates/          → Reusable image components
+    │
+    ├── 📝 text-to-text/            → Text prompts, agents, and skills
+    │   ├── 📁 brand-voice/
+    │   ├── 📁 creative/
+    │   ├── 📁 marketing/
+    │   ├── 📁 skills/
+    │   │   ├── 📁 brand-social-media-assets/
+    │   │   ├── 📁 brand-voice-review-skills/
+    │   │   ├── 📁 powerpoint-proofing/
+    │   │   └── 📁 text-to-weavy-skill/
+    │   ├── 📁 technical/
+    │   ├── 📁 templates/
+    │   └── 📁 translation/
+    │
+    └── 💻 text-to-code/            → Code generation prompts
+        ├── 📁 functions/
+        ├── 📁 scripts/
+        ├── 📁 snippets/
+        └── 📁 templates/
 
 ================================================================================
 KEY CONCEPTS
 ================================================================================
 
-📋 YAML FRONTMATTER (Required at top of every file)
+📋 YAML FRONTMATTER (Required for standard prompt files)
    → Metadata: id, title, type, category, tags, version, dates, etc.
    → See templates for complete structure
+
+🧩 CODEX SKILL PACKAGES
+   → Live directly under prompts/text-to-text/skills/
+   → Use a root SKILL.md plus optional agents, assets, references, and scripts
+   → Skill support files are not standard prompt files
 
 🔗 MODULAR SYSTEM
    → Style + Scene + Subject = Complete composition
@@ -76,9 +88,9 @@ QUICK COMMANDS
 ================================================================================
 
 Start new prompt:
-  cd text-to-image/styles/photography
+  cd prompts/text-to-image/styles/photography
   mkdir my-style
-  cp ../../../_system/templates/style-template.md my-style/_style.md
+  cp ../../../../_system/templates/style-template.md my-style/_style.md
   code my-style/_style.md
 
 Daily workflow:
@@ -103,4 +115,4 @@ TOOLS & INTERFACES
 
 ================================================================================
 
-For more details, see README.md or QUICKSTART.md
+For more details, see ../../README.md or QUICKSTART.md

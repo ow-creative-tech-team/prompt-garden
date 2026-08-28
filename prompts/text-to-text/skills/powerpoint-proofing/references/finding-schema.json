@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PowerPoint proofing review",
+  "type": "object",
+  "required": ["schema_version", "assumptions", "readiness", "coverage", "findings"],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "assumptions": {"type": "object"},
+    "readiness": {"enum": ["Not ready", "Ready after minor fixes", "Ready"]},
+    "coverage": {"type": "array"},
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["finding_id", "slide_number", "object_id", "object_name", "visibility", "category", "rule_id", "rule_version", "observed_evidence", "expected_rule", "required_action", "action_group", "severity", "confidence", "ownership", "readiness_impact"],
+        "properties": {
+          "finding_id": {"type": "string"},
+          "slide_number": {"type": ["integer", "null"]},
+          "object_id": {"type": ["string", "null"]},
+          "object_name": {"type": ["string", "null"]},
+          "visibility": {"enum": ["in_frame", "off_canvas", "hidden", "notes", "comment"]},
+          "category": {"type": "string"},
+          "rule_id": {"type": "string"},
+          "rule_version": {"type": "string"},
+          "observed_evidence": {"type": "string"},
+          "expected_rule": {"type": "string"},
+          "required_action": {"type": "string"},
+          "action_group": {"enum": ["fix_before_delivery", "check_with_owner", "recommended_improvement", "optional_polish"]},
+          "severity": {"enum": ["Critical", "High", "Medium", "Low", "Needs decision"]},
+          "confidence": {"enum": ["high", "medium", "low"]},
+          "ownership": {"enum": ["designer_introduced", "inherited_from_source", "requester_decision", "template_or_system", "unresolved"]},
+          "readiness_impact": {"type": "boolean"},
+          "comparison": {"type": ["object", "null"]},
+          "evidence": {"type": ["object", "null"]}
+        }
+      }
+    }
+  }
+}

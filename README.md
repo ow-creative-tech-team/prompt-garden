@@ -78,13 +78,14 @@ prompt-garden/
 │   │   │   │   ├── SKILL.md
 │   │   │   │   ├── README.md
 │   │   │   │   └── AGENTS.md
-│   │   │   └── powerpoint/
-│   │   │       └── powerpoint-proofing/
-│   │   │           ├── SKILL.md          # Skill definition and workflow
-│   │   │           ├── AGENTS.md         # Directory-level agent guide
-│   │   │           ├── agents/           # Skill agent metadata
-│   │   │           ├── references/       # Skill-specific rule references
-│   │   │           └── scripts/          # Skill helper scripts
+│   │   │   └── powerpoint-proofing/
+│   │   │       ├── SKILL.md          # Skill definition and workflow
+│   │   │       ├── AGENTS.md         # Directory-level agent guide
+│   │   │       ├── INSTALL.md        # Installation guidance
+│   │   │       ├── agents/           # Skill agent metadata
+│   │   │       ├── assets/           # Self-contained approved assets
+│   │   │       ├── references/       # Skill-specific rule references
+│   │   │       └── scripts/          # Skill helper scripts
 │   │   ├── technical/             # Technical writing prompts
 │   │   ├── templates/             # Reusable templates
 │   │   └── translation/           # Translation prompt systems
@@ -568,7 +569,7 @@ git checkout main                       # Switch to main
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+See [the contribution guide](_system/docs/CONTRIBUTING.md) for detailed contribution guidelines.
 
 ---
 

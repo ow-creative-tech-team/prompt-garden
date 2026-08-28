@@ -36,10 +36,31 @@ prompt-garden/
 │   │   └── templates/                # Reusable image prompt components
 │   │
 │   ├── text-to-text/                 # Text generation prompts
+│   │   ├── brand-voice/              # Brand voice prompts and guidance
+│   │   │   └── brand-voice-reviewers/
 │   │   ├── creative/                 # Creative writing
 │   │   ├── technical/                # Technical documentation
 │   │   ├── marketing/                # Marketing copy
-│   │   └── templates/                # Reusable text templates
+│   │   ├── skills/                   # Self-contained Codex skill packages
+│   │   │   ├── brand-social-media-assets/
+│   │   │   ├── brand-voice-review-skills/
+│   │   │   │   ├── brand-voice-check/
+│   │   │   │   ├── email-review/
+│   │   │   │   ├── presentation-review/
+│   │   │   │   ├── publication-review/
+│   │   │   │   └── social-media-review/
+│   │   │   ├── powerpoint-proofing/
+│   │   │   │   ├── SKILL.md
+│   │   │   │   ├── AGENTS.md
+│   │   │   │   ├── INSTALL.md
+│   │   │   │   ├── agents/
+│   │   │   │   ├── assets/
+│   │   │   │   ├── references/
+│   │   │   │   └── scripts/
+│   │   │   └── text-to-weavy-skill/
+│   │   ├── templates/                # Reusable text templates
+│   │   └── translation/              # Translation prompts and agents
+│   │       └── translation-prompts-v1/
 │   │
 │   └── text-to-code/                 # Code generation prompts
 │       ├── functions/                # Function generation
@@ -49,7 +70,7 @@ prompt-garden/
 │
 ├── .gitignore                        # Git ignore rules
 ├── README.md                         # Main documentation
-└── CONTRIBUTING.md                   # Contribution guidelines
+└── AGENTS.md                         # Repository agent guidance
 ```
 
 ## Design Principles
@@ -82,6 +103,13 @@ prompt-garden/
 - Reusable components for that category
 - Different from `_system/templates/` (infrastructure)
 - Contains actual working template prompts
+
+**`prompts/text-to-text/skills/`**
+- Contains installable, self-contained Codex skill packages
+- Each skill has a root `SKILL.md`
+- A skill may also include `AGENTS.md`, `README.md`, `INSTALL.md`, `agents/`, `assets/`, `references/`, and `scripts/`
+- Skill support files do not use the standard prompt YAML schema
+- Keep each standalone skill directly under `skills/`; add another grouping level only when it improves navigation for a genuine collection of related skills
 
 ### 3. Style Folder Organization
 
@@ -129,6 +157,8 @@ Need code prompt  → prompts/text-to-code/
 ```
 Photography style     → prompts/text-to-image/styles/photography/
 Marketing copy        → prompts/text-to-text/marketing/
+Codex skill           → prompts/text-to-text/skills/[skill-name]/
+Translation prompt    → prompts/text-to-text/translation/
 Python function       → prompts/text-to-code/functions/
 ```
 
@@ -304,7 +334,7 @@ prompts/text-to-image/styles/photography/
 
 **Key Files:**
 - Main docs: `README.md`
-- Contributing: `CONTRIBUTING.md`
+- Contributing: `_system/docs/CONTRIBUTING.md`
 - This guide: `_system/docs/folder-structure.md`
 
 ---

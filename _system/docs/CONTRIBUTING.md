@@ -30,7 +30,7 @@ Thank you for contributing to our prompt library! This guide will help you creat
    ```
 
 3. **Familiarize yourself** with:
-   - [README.md](README.md) - Full documentation
+   - [README.md](../../README.md) - Full documentation
    - `_system/templates/` - Available templates
    - Existing prompts in your category
 

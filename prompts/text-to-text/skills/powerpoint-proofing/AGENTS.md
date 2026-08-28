@@ -9,7 +9,7 @@ This `AGENTS.md` is the directory-level guide for the PowerPoint proofing skill.
 Key paths from the `prompt-garden/` repository root:
 
 ```text
-prompts/text-to-text/skills/powerpoint/powerpoint-proofing/
+prompts/text-to-text/skills/powerpoint-proofing/
 ├── AGENTS.md
 ├── SKILL.md
 ├── agents/

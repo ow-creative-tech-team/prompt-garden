@@ -19,6 +19,7 @@ prompt-garden/
 │   │   └── templates/      # Reusable components
 │
 │   ├── text-to-text/       # Text generation prompts
+│   │   ├── brand-voice/    # Brand voice reviewer prompts
 │   │   ├── creative/
 │   │   ├── technical/
 │   │   ├── marketing/
@@ -26,7 +27,13 @@ prompt-garden/
 │   │   │       ├── _tone.md
 │   │   │       ├── format-*.md
 │   │   │       └── topic-*.md
-│   │   └── templates/
+│   │   ├── skills/         # Self-contained Codex skill packages
+│   │   │   ├── brand-social-media-assets/
+│   │   │   ├── brand-voice-review-skills/
+│   │   │   ├── powerpoint-proofing/
+│   │   │   └── text-to-weavy-skill/
+│   │   ├── templates/
+│   │   └── translation/    # Translation prompts and agents
 │
 │   └── text-to-code/       # Code generation prompts
 │       ├── functions/
@@ -42,6 +49,8 @@ prompt-garden/
     ├── schemas/            # YAML validation
     └── templates/          # Prompt templates
 ```
+
+Codex skills are self-contained folders under `prompts/text-to-text/skills/`. Each skill has a root `SKILL.md` and may also include `AGENTS.md`, `README.md`, `INSTALL.md`, `agents/`, `assets/`, `references/`, and `scripts/`. Skill support files do not use the standard prompt YAML schema.
 
 ---
 
@@ -360,7 +369,7 @@ git branch -d feature/old-branch        # Delete local branch
 
 **YAML Errors?** → [yamllint.com](http://www.yamllint.com/)
 **Git Issues?** → [GitHub Docs](https://docs.github.com)
-**Full Documentation?** → See [README.md](README.md)
+**Full Documentation?** → See [README.md](../../README.md)
 
 ---
 
