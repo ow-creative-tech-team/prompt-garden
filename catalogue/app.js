@@ -33,7 +33,6 @@ const elements = {
   audience: document.querySelector("#audience"),
   platform: document.querySelector("#platform"),
   count: document.querySelector("#result-count"),
-  countBadge: document.querySelector("#count-badge"),
   clear: document.querySelector("#clear-filters"),
   empty: document.querySelector("#empty-state"),
   error: document.querySelector("#error-state"),
@@ -183,7 +182,6 @@ function render() {
   const rows = filterRows();
   elements.cards.replaceChildren(...rows.map(createCard));
   elements.count.textContent = `${rows.length} ${rows.length === 1 ? "tool" : "tools"}`;
-  elements.countBadge.textContent = rows.length;
   elements.empty.hidden = rows.length !== 0;
   elements.clear.hidden = !(state.search || state.category || state.audience || state.platform);
 }
