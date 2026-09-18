@@ -7,14 +7,17 @@
       name="description"
       content="Browse the Creative Technology team's prompts, agents, custom GPTs, and skills."
     />
-    <title>Creative Technology AI tools</title>
+    <title>Prompt &amp; Skill Catalogue — Creative Technology</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="hero">
       <div class="hero__inner">
         <p class="eyebrow">Creative Technology</p>
-        <h1>AI tools catalogue</h1>
+        <div class="hero__title-row">
+          <h1>Prompt &amp; Skill Catalogue</h1>
+          <span class="count-badge" id="count-badge"></span>
+        </div>
         <p class="intro">
           Find the right prompt, agent, or skill for your task, then open it in
           the platform you already use.
@@ -34,11 +37,12 @@
           />
         </label>
 
+        <div class="filter-group">
+          <span class="filter-label">Category</span>
+          <div class="tab-pills" id="category-tabs"></div>
+        </div>
+
         <div class="selects">
-          <label>
-            <span>Category</span>
-            <select id="category"><option value="">All categories</option></select>
-          </label>
           <label>
             <span>Audience</span>
             <select id="audience"><option value="">All audiences</option></select>

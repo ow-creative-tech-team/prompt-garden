@@ -6,15 +6,34 @@ const LINK_COLUMNS = [
   ["GitHub Source", "GitHub source", false],
 ];
 
+const CATEGORY_SLUGS = {
+  "Brand Voice": "brand-voice",
+  "Translation": "translation",
+  "Presentation": "presentation",
+  "Creative Production": "creative",
+  "Workflow Automation": "workflow",
+  "Translation Quality Assurance": "qa",
+  "Prompt Development": "prompt-dev",
+};
+
+const CATEGORY_LABELS = {
+  "Brand Voice": "Brand voice",
+  "Creative Production": "Creative",
+  "Workflow Automation": "Workflow",
+  "Translation Quality Assurance": "QA",
+  "Prompt Development": "Prompt dev",
+};
+
 const state = { rows: [], search: "", category: "", audience: "", platform: "" };
 
 const elements = {
   cards: document.querySelector("#cards"),
   search: document.querySelector("#search"),
-  category: document.querySelector("#category"),
+  categoryTabs: document.querySelector("#category-tabs"),
   audience: document.querySelector("#audience"),
   platform: document.querySelector("#platform"),
   count: document.querySelector("#result-count"),
+  countBadge: document.querySelector("#count-badge"),
   clear: document.querySelector("#clear-filters"),
   empty: document.querySelector("#empty-state"),
   error: document.querySelector("#error-state"),
@@ -67,11 +86,28 @@ function makeOption(value) {
   return option;
 }
 
+function makePill(value, active) {
+  const button = document.createElement("button");
+  button.className = `tab-pill${active ? " tab-pill--active" : ""}`;
+  button.type = "button";
+  button.dataset.value = value === "All" ? "" : value;
+  button.textContent = value === "All" ? "All" : (CATEGORY_LABELS[value] ?? value);
+  button.addEventListener("click", () => {
+    elements.categoryTabs.querySelectorAll(".tab-pill").forEach((p) => p.classList.remove("tab-pill--active"));
+    button.classList.add("tab-pill--active");
+    state.category = button.dataset.value;
+    render();
+  });
+  return button;
+}
+
 function populateFilters(rows) {
   const unique = (column) => [...new Set(rows.map((row) => row[column]).filter(Boolean))].sort();
-  unique("Category").forEach((value) => elements.category.append(makeOption(value)));
-  unique("Audience").forEach((value) => elements.audience.append(makeOption(value)));
 
+  elements.categoryTabs.append(makePill("All", true));
+  unique("Category").forEach((value) => elements.categoryTabs.append(makePill(value, false)));
+
+  unique("Audience").forEach((value) => elements.audience.append(makeOption(value)));
   LINK_COLUMNS.forEach(([column, label]) => {
     if (rows.some((row) => row[column])) elements.platform.append(makeOption(label));
   });
@@ -92,7 +128,8 @@ function createCard(row) {
 
   const meta = document.createElement("div");
   meta.className = "card__meta";
-  [[row.Category, "tag"], [row.Audience, "tag tag--audience"]].forEach(([text, className]) => {
+  const categorySlug = CATEGORY_SLUGS[row.Category] ?? "default";
+  [[row.Category, `tag tag--${categorySlug}`], [row.Audience, "tag tag--audience"]].forEach(([text, className]) => {
     if (!text) return;
     const tag = document.createElement("span");
     tag.className = className;
@@ -146,6 +183,7 @@ function render() {
   const rows = filterRows();
   elements.cards.replaceChildren(...rows.map(createCard));
   elements.count.textContent = `${rows.length} ${rows.length === 1 ? "tool" : "tools"}`;
+  elements.countBadge.textContent = rows.length;
   elements.empty.hidden = rows.length !== 0;
   elements.clear.hidden = !(state.search || state.category || state.audience || state.platform);
 }
@@ -156,7 +194,7 @@ function bindControls() {
     render();
   });
 
-  ["category", "audience", "platform"].forEach((key) => {
+  ["audience", "platform"].forEach((key) => {
     elements[key].addEventListener("change", (event) => {
       state[key] = event.target.value;
       render();
@@ -169,9 +207,11 @@ function bindControls() {
     state.audience = "";
     state.platform = "";
     elements.search.value = "";
-    elements.category.value = "";
     elements.audience.value = "";
     elements.platform.value = "";
+    elements.categoryTabs.querySelectorAll(".tab-pill").forEach((p) => p.classList.remove("tab-pill--active"));
+    const allPill = elements.categoryTabs.querySelector('[data-value=""]');
+    if (allPill) allPill.classList.add("tab-pill--active");
     render();
     elements.search.focus();
   });
