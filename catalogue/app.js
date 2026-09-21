@@ -10,6 +10,7 @@ const CATEGORY_SLUGS = {
   "Translation": "translation",
   Presentation: "presentation",
   "Creative Production": "creative",
+  "Image Generation": "image-generation",
   "Workflow Automation": "workflow",
   "Translation Quality Assurance": "qa",
   "Prompt Development": "prompt-dev",
