@@ -1,29 +1,23 @@
-# AI tools catalogue
+# Prompt & Skill Catalogue
 
-This static page turns every row in `catalogue.csv` into a card. It requires no
-build step and can be hosted on GitHub Pages, SharePoint, or any basic web
-server.
+This dependency-free static site turns each row in `catalogue.csv` into a searchable card. It is deployed from the `feature/ai-tools-catalogue` branch and is intended for authenticated internal users only.
 
 ## Update the catalogue
 
-1. Maintain the catalogue in Excel or Google Sheets.
-2. Keep the existing column names unchanged.
-3. Export the sheet as CSV.
-4. Replace `catalogue.csv` with the new export.
+1. Maintain the approved inventory in the team spreadsheet.
+2. Export it as CSV, keeping these headers exactly: `Prompt ID`, `Name`, `Purpose`, `Category`, `Audience`, `Available as`, `ChatGPT Skill`, `Claude Skill`, `LenAI Agent`, `GitHub Source`, and `Usage Example`.
+3. Replace `catalogue/catalogue.csv` with the export.
+4. Run `node catalogue/validate-catalogue.mjs` from the repository root.
+5. Preview the site locally, review the changes, then commit and push to `feature/ai-tools-catalogue`.
 
-Cards, filters, counts, and platform buttons update automatically. Empty link
-cells are simply omitted from the corresponding card.
+The deployment workflow validates the CSV before publishing. Do not share the Pages URL until repository administrators have restricted GitHub Pages to authenticated organization or enterprise users; the catalogue includes internal LenAI links.
 
 ## Preview locally
 
-From the repository root, serve the folder with any local web server, then open
-the URL it provides. For example:
+From the repository root, run:
 
 ```sh
 python3 -m http.server 8000 --directory catalogue
 ```
 
 Then visit `http://localhost:8000`.
-
-Opening `index.html` directly from Finder will not load the CSV because browsers
-block local file requests.

@@ -1,15 +1,14 @@
 const LINK_COLUMNS = [
-  ["ChatGPT Skill", "ChatGPT skill", true],
-  ["Claude Skill", "Claude skill", false],
-  ["LenAI Agent", "LenAI agent", false],
-  ["CustomGPT", "Custom GPT", false],
-  ["GitHub Source", "GitHub source", false],
+  ["ChatGPT Skill", "ChatGPT"],
+  ["Claude Skill", "Claude"],
+  ["LenAI Agent", "LenAI"],
+  ["GitHub Source", "GitHub"],
 ];
 
 const CATEGORY_SLUGS = {
   "Brand Voice": "brand-voice",
   "Translation": "translation",
-  "Presentation": "presentation",
+  Presentation: "presentation",
   "Creative Production": "creative",
   "Workflow Automation": "workflow",
   "Translation Quality Assurance": "qa",
@@ -24,14 +23,11 @@ const CATEGORY_LABELS = {
   "Prompt Development": "Prompt dev",
 };
 
-const state = { rows: [], search: "", category: "", audience: "", platform: "" };
-
+const state = { rows: [], search: "", category: "" };
 const elements = {
   cards: document.querySelector("#cards"),
   search: document.querySelector("#search"),
   categoryTabs: document.querySelector("#category-tabs"),
-  audience: document.querySelector("#audience"),
-  platform: document.querySelector("#platform"),
   count: document.querySelector("#result-count"),
   clear: document.querySelector("#clear-filters"),
   empty: document.querySelector("#empty-state"),
@@ -47,7 +43,6 @@ function parseCsv(text) {
   for (let index = 0; index < text.length; index += 1) {
     const character = text[index];
     const next = text[index + 1];
-
     if (character === '"' && quoted && next === '"') {
       value += '"';
       index += 1;
@@ -67,49 +62,9 @@ function parseCsv(text) {
     }
   }
 
-  if (value || row.length) {
-    row.push(value.trim());
-    rows.push(row);
-  }
-
+  if (value || row.length) rows.push([...row, value.trim()]);
   const [headers, ...records] = rows;
-  return records.map((record) =>
-    Object.fromEntries(headers.map((header, index) => [header, record[index] ?? ""])),
-  );
-}
-
-function makeOption(value) {
-  const option = document.createElement("option");
-  option.value = value;
-  option.textContent = value;
-  return option;
-}
-
-function makePill(value, active) {
-  const button = document.createElement("button");
-  button.className = `tab-pill${active ? " tab-pill--active" : ""}`;
-  button.type = "button";
-  button.dataset.value = value === "All" ? "" : value;
-  button.textContent = value === "All" ? "All" : (CATEGORY_LABELS[value] ?? value);
-  button.addEventListener("click", () => {
-    elements.categoryTabs.querySelectorAll(".tab-pill").forEach((p) => p.classList.remove("tab-pill--active"));
-    button.classList.add("tab-pill--active");
-    state.category = button.dataset.value;
-    render();
-  });
-  return button;
-}
-
-function populateFilters(rows) {
-  const unique = (column) => [...new Set(rows.map((row) => row[column]).filter(Boolean))].sort();
-
-  elements.categoryTabs.append(makePill("All", true));
-  unique("Category").forEach((value) => elements.categoryTabs.append(makePill(value, false)));
-
-  unique("Audience").forEach((value) => elements.audience.append(makeOption(value)));
-  LINK_COLUMNS.forEach(([column, label]) => {
-    if (rows.some((row) => row[column])) elements.platform.append(makeOption(label));
-  });
+  return records.map((record) => Object.fromEntries(headers.map((header, index) => [header, record[index] ?? ""])));
 }
 
 function safeUrl(value) {
@@ -121,44 +76,70 @@ function safeUrl(value) {
   }
 }
 
+function makePill(value, active) {
+  const button = document.createElement("button");
+  button.className = `tab-pill${active ? " tab-pill--active" : ""}`;
+  button.type = "button";
+  button.dataset.value = value === "All" ? "" : value;
+  button.setAttribute("aria-pressed", String(active));
+  button.textContent = value === "All" ? "All" : (CATEGORY_LABELS[value] ?? value);
+  button.addEventListener("click", () => {
+    state.category = button.dataset.value;
+    elements.categoryTabs.querySelectorAll(".tab-pill").forEach((pill) => {
+      const selected = pill === button;
+      pill.classList.toggle("tab-pill--active", selected);
+      pill.setAttribute("aria-pressed", String(selected));
+    });
+    render();
+  });
+  return button;
+}
+
+function populateFilters(rows) {
+  const categories = [...new Set(rows.map((row) => row.Category).filter(Boolean))].sort();
+  elements.categoryTabs.replaceChildren(makePill("All", true), ...categories.map((value) => makePill(value, false)));
+}
+
+function createLink(url, label, name) {
+  const link = document.createElement("a");
+  link.className = "card__link";
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = label;
+  link.setAttribute("aria-label", `${label}: ${name} (opens in a new tab)`);
+  return link;
+}
+
 function createCard(row) {
   const article = document.createElement("article");
   article.className = "card";
 
-  const meta = document.createElement("div");
-  meta.className = "card__meta";
-  const categorySlug = CATEGORY_SLUGS[row.Category] ?? "default";
-  [[row.Category, `tag tag--${categorySlug}`], [row.Audience, "tag tag--audience"]].forEach(([text, className]) => {
-    if (!text) return;
-    const tag = document.createElement("span");
-    tag.className = className;
-    tag.textContent = text;
-    meta.append(tag);
-  });
-
+  const heading = document.createElement("div");
+  heading.className = "card__heading";
   const title = document.createElement("h2");
   title.textContent = row.Name;
+  const category = document.createElement("span");
+  category.className = `tag tag--${CATEGORY_SLUGS[row.Category] ?? "default"}`;
+  category.textContent = CATEGORY_LABELS[row.Category] ?? row.Category;
+  heading.append(title, category);
 
   const purpose = document.createElement("p");
   purpose.className = "card__purpose";
   purpose.textContent = row.Purpose;
 
+  const audience = document.createElement("p");
+  audience.className = "card__audience";
+  audience.textContent = row.Audience;
+
   const links = document.createElement("div");
   links.className = "card__links";
-  LINK_COLUMNS.forEach(([column, label, primary]) => {
+  LINK_COLUMNS.forEach(([column, label]) => {
     const url = safeUrl(row[column]);
-    if (!url) return;
-    const link = document.createElement("a");
-    link.className = `card__link${primary ? " card__link--primary" : ""}`;
-    link.href = url;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    link.textContent = label;
-    link.setAttribute("aria-label", `${label}: ${row.Name} (opens in a new tab)`);
-    links.append(link);
+    if (url) links.append(createLink(url, label, row.Name));
   });
 
-  article.append(meta, title, purpose, links);
+  article.append(heading, purpose, audience, links);
   return article;
 }
 
@@ -168,22 +149,17 @@ function filterRows() {
     const searchable = [row.Name, row.Purpose, row.Category, row.Audience, row["Available as"]]
       .join(" ")
       .toLocaleLowerCase();
-    const platformColumn = LINK_COLUMNS.find(([, label]) => label === state.platform)?.[0];
-    return (
-      (!query || searchable.includes(query)) &&
-      (!state.category || row.Category === state.category) &&
-      (!state.audience || row.Audience === state.audience) &&
-      (!platformColumn || Boolean(row[platformColumn]))
-    );
+    return (!query || searchable.includes(query)) && (!state.category || row.Category === state.category);
   });
 }
 
 function render() {
   const rows = filterRows();
   elements.cards.replaceChildren(...rows.map(createCard));
-  elements.count.textContent = `${rows.length} ${rows.length === 1 ? "tool" : "tools"}`;
+  elements.count.textContent = String(rows.length);
+  elements.count.setAttribute("aria-label", `${rows.length} matching tools`);
   elements.empty.hidden = rows.length !== 0;
-  elements.clear.hidden = !(state.search || state.category || state.audience || state.platform);
+  elements.clear.hidden = !(state.search || state.category);
 }
 
 function bindControls() {
@@ -191,26 +167,11 @@ function bindControls() {
     state.search = event.target.value.trim();
     render();
   });
-
-  ["audience", "platform"].forEach((key) => {
-    elements[key].addEventListener("change", (event) => {
-      state[key] = event.target.value;
-      render();
-    });
-  });
-
   elements.clear.addEventListener("click", () => {
     state.search = "";
     state.category = "";
-    state.audience = "";
-    state.platform = "";
     elements.search.value = "";
-    elements.audience.value = "";
-    elements.platform.value = "";
-    elements.categoryTabs.querySelectorAll(".tab-pill").forEach((p) => p.classList.remove("tab-pill--active"));
-    const allPill = elements.categoryTabs.querySelector('[data-value=""]');
-    if (allPill) allPill.classList.add("tab-pill--active");
-    render();
+    elements.categoryTabs.querySelector('[data-value=""]').click();
     elements.search.focus();
   });
 }
@@ -225,7 +186,7 @@ async function start() {
     render();
   } catch (error) {
     console.error(error);
-    elements.count.textContent = "Catalogue unavailable";
+    elements.count.textContent = "–";
     elements.error.hidden = false;
   }
 }

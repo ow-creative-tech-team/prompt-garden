@@ -3,74 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Browse the Creative Technology team's prompts, agents, custom GPTs, and skills."
-    />
-    <title>Prompt and Skill Catalogue — Creative Technology Team</title>
+    <meta name="description" content="Browse the Creative Technology team's prompts, agents, and skills." />
+    <title>Prompt &amp; Skill Catalogue — Creative Technology Team</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <div class="hero__inner">
-        <p class="eyebrow">Creative Technology Team</p>
-        <h1>Prompt and Skill Catalogue</h1>
-        <p class="intro">
-          Find the right prompt for your task, then open it in the platform you already use.
-        </p>
-      </div>
-    </header>
-
     <main>
+      <header class="hero">
+        <p class="eyebrow">Creative Technology Team</p>
+        <h1>Prompt &amp; Skill Catalogue <span id="result-count" aria-live="polite">–</span></h1>
+        <p class="intro">A collection of AI prompts and skills built by the team — available across ChatGPT, Claude, LenAI, and more.</p>
+      </header>
+
       <section class="controls" aria-label="Catalogue filters">
+        <div class="tab-pills" id="category-tabs" aria-label="Filter by category"></div>
         <label class="search">
-          <span>Search the catalogue</span>
-          <input
-            id="search"
-            type="search"
-            placeholder="Try translation, presentation, or email"
-            autocomplete="off"
-          />
+          <span class="sr-only">Search the catalogue</span>
+          <input id="search" type="search" placeholder="Search…" autocomplete="off" />
         </label>
-
-        <div class="filter-group">
-          <span class="filter-label">Category</span>
-          <div class="tab-pills" id="category-tabs"></div>
-        </div>
-
-        <div class="selects">
-          <label>
-            <span>Audience</span>
-            <select id="audience"><option value="">All audiences</option></select>
-          </label>
-          <label>
-            <span>Available on</span>
-            <select id="platform"><option value="">All platforms</option></select>
-          </label>
-        </div>
+        <button id="clear-filters" class="clear-filters" type="button" hidden>Clear filters</button>
       </section>
 
-      <div class="results-heading">
-        <p id="result-count" aria-live="polite">Loading catalogue…</p>
-        <button id="clear-filters" class="text-button" type="button" hidden>
-          Clear filters
-        </button>
-      </div>
-
       <section id="cards" class="card-grid" aria-label="AI tools"></section>
-      <p id="empty-state" class="empty-state" hidden>
-        No tools match those filters. Try a broader search.
-      </p>
+      <p id="empty-state" class="empty-state" hidden>No tools match those filters. Try a broader search.</p>
       <p id="error-state" class="empty-state empty-state--error" hidden>
-        The catalogue could not be loaded. Open this page through a web server,
-        or check that <strong>catalogue.csv</strong> is beside the page files.
+        The catalogue could not be loaded. Open this page through a web server, or check that <strong>catalogue.csv</strong> is beside the page files.
       </p>
     </main>
 
-    <footer>
-      <p>Maintained from <code>catalogue.csv</code>. Update the sheet, export it as CSV, and replace that file.</p>
-    </footer>
-
+    <footer><p>Maintained by the Creative Technology Team.</p></footer>
     <script src="app.js" defer></script>
   </body>
 </html>
