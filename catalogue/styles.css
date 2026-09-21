@@ -22,8 +22,9 @@ h1 { margin: 0; font-size: clamp(2.05rem, 4vw, 2.9rem); letter-spacing: -0.055em
 .tab-pill, .clear-filters { min-height: 30px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: #555; cursor: pointer; font: inherit; font-size: 0.78rem; padding: 0.28rem 0.82rem; }
 .tab-pill:hover, .tab-pill--active { border-color: var(--blue); color: var(--blue); }
 .tab-pill--active { background: var(--blue); color: #fff; }
-.search { width: 200px; }
-input { width: 100%; min-height: 30px; padding: 0.3rem 0.75rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: inherit; font-size: 0.82rem; }
+.search { position: relative; width: 200px; color: var(--muted); }
+.search__icon { position: absolute; top: 50%; left: 0.72rem; z-index: 1; pointer-events: none; transform: translateY(-50%); }
+input { width: 100%; min-height: 30px; padding: 0.3rem 0.75rem 0.3rem 2rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: inherit; font-size: 0.82rem; }
 input:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid #8bb6ff; outline-offset: 2px; }
 .clear-filters { color: var(--blue); white-space: nowrap; }
 .card-grid { display: grid; align-items: start; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
@@ -41,8 +42,8 @@ input:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid 
 .tag--prompt-dev { background: #f1e8fd; color: #6834a0; }
 .tag--default { background: #ececec; color: #555; }
 .card__purpose { margin: 0.75rem 0 0.8rem; color: var(--muted); font-size: 0.85rem; }
-.card__audience { margin: 0 0 0.55rem; color: var(--muted); font-size: 0.73rem; }
-.card__audience::before { content: "⌁"; margin-right: 0.32rem; color: var(--ink); }
+.card__audience { display: flex; align-items: center; gap: 0.32rem; margin: 0 0 0.55rem; color: var(--muted); font-size: 0.73rem; }
+.card__audience-icon { width: 12px; height: 12px; flex: none; color: var(--ink); }
 .card__links { display: flex; flex-wrap: wrap; gap: 0.4rem; padding-top: 0.6rem; border-top: 1px solid var(--line); }
 .card__link { padding: 0.2rem 0.58rem; border: 1px solid var(--line); border-radius: 6px; background: #fafafa; color: #272727; font-size: 0.7rem; font-weight: 700; line-height: 1.25; text-decoration: none; }
 .card__link:hover { border-color: var(--blue); color: var(--blue); }

@@ -112,6 +112,18 @@ function createLink(url, label, name) {
   return link;
 }
 
+function createAudienceIcon() {
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  icon.classList.add("card__audience-icon");
+  icon.setAttribute("viewBox", "0 0 24 24");
+  icon.setAttribute("fill", "none");
+  icon.setAttribute("stroke", "currentColor");
+  icon.setAttribute("stroke-width", "2");
+  icon.setAttribute("aria-hidden", "true");
+  icon.innerHTML = '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />';
+  return icon;
+}
+
 function createCard(row) {
   const article = document.createElement("article");
   article.className = "card";
@@ -131,7 +143,7 @@ function createCard(row) {
 
   const audience = document.createElement("p");
   audience.className = "card__audience";
-  audience.textContent = row.Audience;
+  audience.append(createAudienceIcon(), document.createTextNode(row.Audience));
 
   const links = document.createElement("div");
   links.className = "card__links";
